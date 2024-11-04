@@ -8,6 +8,15 @@
 \description{
 An open data product with travel times tables by transit on a representative weekday of 2019 (pre-pandemic measures) and 2023 (post-pandemic measures) for the analysis of employment accessibility, and travel time tables by transit on a representative weekend day on the same years for the analysis of grocery accessibility.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/paezha/canaccessR}
+  \item \url{https://paezha.github.io/canaccessR/}
+  \item Report bugs at \url{https://github.com/paezha/canaccessR/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Antonio Páez \email{paezha@mcmaster.ca} (\href{https://orcid.org/0000-0001-6912-9919}{ORCID})
 

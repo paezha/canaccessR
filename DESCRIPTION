@@ -19,5 +19,5 @@ RoxygenNote: 7.3.2
 Suggests: 
     ggplot2,
     sf
-URL: https://github.com/paezha/canaccessR
+URL: https://github.com/paezha/canaccessR, https://paezha.github.io/canaccessR/
 BugReports: https://github.com/paezha/canaccessR/issues
