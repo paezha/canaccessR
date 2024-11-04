@@ -24,4 +24,8 @@ reference:
   desc: Boundaries to provide a background to the metropolitan areas
 - contents:
   - starts_with("region_")
+- title: Transit statistics
+  desc: Aggregated revenue and ridership statistics for Canada and regions
+- contents:
+  - starts_with("transit_")  
   
