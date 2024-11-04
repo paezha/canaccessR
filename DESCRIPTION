@@ -2,10 +2,14 @@ Package: canaccessR
 Title: Data Package For Transit Accessibility Analysis in Selected Canadian Metropolitan Areas
 Version: 0.0.0.9000
 Authors@R: 
-    c(person("Christopher D.", "Higgins", , "soukhoa@mcmaster.ca", role = c("aut"),
+    c(person("Robert N.", "Arku", , "soukhoa@mcmaster.ca", role = c("aut"),
+           comment = c(ORCID = "")),
+      person("Christopher D.", "Higgins", , "soukhoa@mcmaster.ca", role = c("aut"),
            comment = c(ORCID = "0000-0002-3551-7750")),
       person("Antonio", "Páez", , "paezha@mcmaster.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6912-9919")),
+      person("João Pedro", " Parga", , "joao.parga@mail.utoronto.ca", role = c("aut"),
+           comment = c(ORCID = "0000-0002-4105-5927")),
       person("Anastasia", "Soukhov", , "soukhoa@mcmaster.ca", role = c("aut"),
            comment = c(ORCID = "0000-0003-4371-4831")))
 Description: An open data product with travel times tables by transit on a representative

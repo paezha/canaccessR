@@ -5,7 +5,7 @@
 \alias{travel_matrix_emp_ggh}
 \title{Travel time matrix and employment statistics for the Greater Golden Horseshoe.}
 \format{
-A data frame with XXX rows and 9 variables:
+A data frame with 43,680,060 rows and 9 variables:
 \describe{
 \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -15,7 +15,7 @@ A data frame with XXX rows and 9 variables:
 \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 \item{study_region_name}{Name of the Metropolita Area: Greater Golden Horseshoe}
 \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-\item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+\item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 }
 }
 \source{
@@ -29,12 +29,13 @@ Travel times: calculated based on General Transit Feed Standard and OpenStreetMa
 data(travel_matrix_emp_ggh)
 }
 \description{
-A data frame with XX origin-destination pairs, travel time by transit, and
+A data frame with origin-destination pairs, travel time by transit, and
 population and employment by Census Dissemination Area. Census Dissemination
 Areas (DAs) are the smallest publicly available geography provided by Statistics
 Canada. Travel times are for a representative day in two different years:
-2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-calculated as the median of all times within a 15 minutes window of the departure.
+2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of
+the origin DA to the centroid of the destination DA. Times are calculated as
+the median of all times within a 15 minutes window of the departure.
 }
 \examples{
  data(travel_matrix_emp_ggh)

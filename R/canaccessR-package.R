@@ -7,14 +7,15 @@ NULL
 
 #' Travel time matrix and employment statistics for Calgary Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 3,022,244 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -24,7 +25,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Calgary}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -41,14 +42,15 @@ NULL
 
 #' Travel time matrix and employment statistics for Edmonton Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 2,057,486 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -58,7 +60,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Edmonton}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -75,14 +77,15 @@ NULL
 
 #' Travel time matrix and employment statistics for the Greater Golden Horseshoe.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 43,680,060 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -92,7 +95,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Greater Golden Horseshoe}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -109,14 +112,15 @@ NULL
 
 #' Travel time matrix and employment statistics for the Halifax Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 279,178 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -126,7 +130,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Halifax}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -143,14 +147,15 @@ NULL
 
 #' Travel time matrix and employment statistics for the London Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 415,174 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -160,7 +165,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: London}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -177,14 +182,15 @@ NULL
 
 #' Travel time matrix and employment statistics for the Montréal Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 20,091,411 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -194,7 +200,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Montréal}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -211,14 +217,15 @@ NULL
 
 #' Travel time matrix and employment statistics for the Ottawa Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 2,936,912 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -228,7 +235,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Ottawa}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -246,14 +253,15 @@ NULL
 
 #' Travel time matrix and employment statistics for the Quebec Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 1,473,702 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -263,7 +271,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Quebec}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -280,14 +288,15 @@ NULL
 
 #' Travel time matrix and employment statistics for the Vancouver Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 12,254,478 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -297,7 +306,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Vancouver}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -314,14 +323,15 @@ NULL
 
 #' Travel time matrix and employment statistics for the Winnipeg Metropolitan Area.
 #'
-#' A data frame with XX origin-destination pairs, travel time by transit, and
+#' A data frame with origin-destination pairs, travel time by transit, and
 #' population and employment by Census Dissemination Area. Census Dissemination
 #' Areas (DAs) are the smallest publicly available geography provided by Statistics
 #' Canada. Travel times are for a representative day in two different years:
-#' 2019 (pre-covid measures) and 2023 (post-covid measures). Travel times are
-#' calculated as the median of all times within a 15 minutes window of the departure.
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of 
+#' the origin DA to the centroid of the destination DA. Times are calculated as 
+#' the median of all times within a 15 minutes window of the departure.
 #'
-#' @format A data frame with XXX rows and 9 variables:
+#' @format A data frame with 1,574,205 rows and 9 variables:
 #' \describe{
 #'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
 #'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
@@ -331,7 +341,7 @@ NULL
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{study_region_name}{Name of the Metropolita Area: Winnipeg}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
-#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (20XX Census)}
+#'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
 #'
 #' @docType data
@@ -345,6 +355,356 @@ NULL
 #'  data(travel_matrix_emp_win)
 #'  summary(travel_matrix_emp_win$travel_time_p50)
 "travel_matrix_emp_win"
+
+#' Travel time to groceries for Calgary Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 502,757 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "cal" for Calgary}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Calgary}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_cal
+#' @usage data(travel_matrix_grc_cal)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_cal)
+#'  summary(travel_matrix_grc_cal$travel_time_p50)
+"travel_matrix_grc_cal"
+
+#' Travel time to groceries for Edmonton Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 324,030 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "edm" for Edmonton}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Edmonton}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_edm
+#' @usage data(travel_matrix_grc_edm)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_edm)
+#'  summary(travel_matrix_grc_edm$travel_time_p50)
+"travel_matrix_grc_edm"
+
+#' Travel time to groceries for the Greater Golden Horseshoe Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 8,828,718 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "ggh" for Greater Golden Horseshoe}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Greater Golden Horseshoe}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_ggh
+#' @usage data(travel_matrix_grc_ggh)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_ggh)
+#'  summary(travel_matrix_grc_ggh$travel_time_p50)
+"travel_matrix_grc_ggh"
+
+#' Travel time to groceries for Halifax Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 50,747 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "hal" for Halifax}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Halifax}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_hal
+#' @usage data(travel_matrix_grc_hal)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_hal)
+#'  summary(travel_matrix_grc_hal$travel_time_p50)
+"travel_matrix_grc_hal"
+
+#' Travel time to groceries for London Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 52,617 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "ldn" for London}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: London}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_ldn
+#' @usage data(travel_matrix_grc_ldn)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_ldn)
+#'  summary(travel_matrix_grc_ldn$travel_time_p50)
+"travel_matrix_grc_ldn"
+
+#' Travel time to groceries for Montréal Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 2,993,965 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "mtl" for Montréal}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Montréal}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_mtl
+#' @usage data(travel_matrix_grc_mtl)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_mtl)
+#'  summary(travel_matrix_grc_mtl$travel_time_p50)
+"travel_matrix_grc_mtl"
+
+#' Travel time to groceries for Ottawa Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 619,791 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "ott" for Ottawa}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Ottawa}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_ott
+#' @usage data(travel_matrix_grc_ott)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_ott)
+#'  summary(travel_matrix_grc_ott$travel_time_p50)
+"travel_matrix_grc_ott"
+
+#' Travel time to groceries for Quebec Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 234,600 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "que" for Quebec}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Quebec}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_que
+#' @usage data(travel_matrix_grc_que)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_que)
+#'  summary(travel_matrix_grc_que$travel_time_p50)
+"travel_matrix_grc_que"
+
+#' Travel time to groceries for Vancouver Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 4,540,106 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "van" for Vancouver}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Vancouver}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_van
+#' @usage data(travel_matrix_grc_van)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_van)
+#'  summary(travel_matrix_grc_mtl$travel_time_van)
+"travel_matrix_grc_van"
+
+#' Travel time to groceries for Winnipeg Metropolitan Area.
+#'
+#' A data frame with origin-destination pairs, travel time by transit, and
+#' population by Census Dissemination Area of origin. Dissemination Areas (DAs) 
+#' are the smallest publicly available geography provided by Statistics Canada. 
+#' Each destination is a single grocery opportunity, DEFINE THE SELECTION CRITERIA.
+#' Travel times are for a representative day in two different years:
+#' 2019 (pre-covid measures) and 2023 (post-covid measures) from the centroid of the 
+#' origin DA to the address of the grocery. Times are calculated as the 
+#' median of all times within a 15 minutes window of the departure.
+#'
+#' @format A data frame with 362,566 rows and 8 variables:
+#' \describe{
+#'   \item{from_id}{Unique identifier of the Dissemination Area of the zone of origin}
+#'   \item{to_id}{Unique identifier of the Dissemination Area of the zone of destination}
+#'   \item{travel_time_p50}{Median travel time in minutes by transit within a 15 minute window of the time of departure of 8:00 am}
+#'   \item{region}{Identifier of the region: "win" for Winnipeg}
+#'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
+#'   \item{start_year}{Year for which travel time was calculated}
+#'   \item{study_region_name}{Name of the Metropolita Area: Winnipeg}
+#'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name travel_matrix_grc_win
+#' @usage data(travel_matrix_grc_win)
+#' @source Population: Canada Census 2016. See: https://mountainmath.github.io/cancensus/index.html
+#' @source Groceries: DMTI Points of Interest Data
+#' @source Travel times: calculated based on General Transit Feed Standard and OpenStreetMaps data
+#' @examples
+#'  data(travel_matrix_grc_win)
+#'  summary(travel_matrix_grc_win$travel_time_p50)
+"travel_matrix_grc_win"
 
 #' Boundary of Calgary Metropolitan Area.
 #'
@@ -606,7 +966,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 1,759 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -677,7 +1037,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 52 variables:
+#' @format A simple features data frame with 1,688 row and 52 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -748,7 +1108,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 10,040 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -819,7 +1179,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 601 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -890,7 +1250,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 760 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -961,7 +1321,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 6,469 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -1032,7 +1392,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 1,947 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -1103,7 +1463,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 1,291 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -1174,7 +1534,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 3,715 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}
@@ -1245,7 +1605,7 @@ NULL
 #' boundary is unprojected (i.e., it is in latitude-longitude; CRS: WGS 84). The data frame contains
 #' a selection of socio-economic and demographic information for the Dissemination Areas.
 #'
-#' @format A simple features data frame with XXX row and 53 variables:
+#' @format A simple features data frame with 1,299 row and 53 variables:
 #' \describe{
 #'   \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 #'   \item{GeoUID}{Unique identifier of the statistical area}

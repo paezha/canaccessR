@@ -22,7 +22,9 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Robert N. Arku \email{soukhoa@mcmaster.ca}
   \item Christopher D. Higgins \email{soukhoa@mcmaster.ca} (\href{https://orcid.org/0000-0002-3551-7750}{ORCID})
+  \item João Pedro Parga \email{joao.parga@mail.utoronto.ca} (\href{https://orcid.org/0000-0002-4105-5927}{ORCID})
   \item Anastasia Soukhov \email{soukhoa@mcmaster.ca} (\href{https://orcid.org/0000-0003-4371-4831}{ORCID})
 }
 

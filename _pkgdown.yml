@@ -7,7 +7,11 @@ reference:
 - subtitle: Employment
   desc: Travel time tables to employment destinations
 - contents:
-  - starts_with("travel_")
+  - starts_with("travel_matrix_emp")
+- subtitle: Groceries
+  desc: Travel time tables to grocery destinations
+- contents:
+  - starts_with("travel_matrix_grc")  
 - title: Metropolitan Area boundaries
   desc: Boundaries of metropolitan areas
 - contents:

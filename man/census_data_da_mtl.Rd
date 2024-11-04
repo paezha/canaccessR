@@ -5,7 +5,7 @@
 \alias{census_data_da_mtl}
 \title{Socio-economic and demographic data of the Montréal Metropolitan Area for Dissemination Areas.}
 \format{
-A simple features data frame with XXX row and 53 variables:
+A simple features data frame with 6,469 row and 53 variables:
 \describe{
 \item{Type}{Type of statistical area: "DA" for Dissemination Area}
 \item{GeoUID}{Unique identifier of the statistical area}

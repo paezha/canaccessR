@@ -55,23 +55,6 @@ census_data_da_for_join <- census_data_da |>
 
 First, grocery store ttms:
 
-<!-- 
-
-**WARNING**: The travel time matrices for 12 pm are missing.
-
-
-```{r}
-#| eval: false
-ttm_small_path <- fs::dir_create("./ttms_12pm")
-
-ttm_12pm_folders <- fs::dir_ls("./ttms", 
-                               type = "directory", 
-                               regexp = "12_00_00", 
-                               recurse = TRUE)
-
-walk(ttm_12pm_folders, ~dir_copy(.x, fs::path(ttm_small_path, (.x)), overwrite = TRUE))
-```
-
 read in travel time matrices as a data frame:
 ```{r}
 # preparing the data frame to only consider only the 12:00pm departure (+15 min departure window), on Saturday!
@@ -90,6 +73,25 @@ travel_matrix_grocer <- arrow::open_dataset(glue::glue(here::here(),
 
 ```
 
+Save matrices with travel time to groceries:
+```{r}
+regions <- levels(as.factor(travel_matrix_grocer$region))
+
+for(i in regions){
+  travel_matrix_grocer |>
+    filter(region == i) |>
+    assign(x = glue::glue("travel_matrix_grc_{i}"),
+         value = _)
+  
+  save(list = glue::glue("travel_matrix_grc_{i}"),
+       file = glue::glue(here::here(),
+                       "/data/travel_matrix_grc_{i}.rda"),
+     compress = "xz")
+}
+
+```
+
+<!--
 Assigning grocery store related travel impedance weights, for now, from Kwan 1998
 ```{r}
 b0 <- 180
@@ -99,28 +101,9 @@ travel_matrix_grocer <- travel_matrix_grocer |>
     f = exp(-travel_time_p50 ^ 2 / b0) #informed by Kwan 1998) 
     )
 ```
-
-
-## grocer spatial accessibility
-
-Let's also add non-competitive grocery store spatial accessibility to the frame:
-```{r}
-access_grocers_2019 <- travel_matrix_grocer_2019 |> group_by(from_id) |> summarise(S_i = sum(f*o_j))
-access_grocers_2023 <- travel_matrix_grocer_2023 |> group_by(from_id) |> summarise(S_i = sum(f*o_j))
-
-#also adding per capita spatial accessibility 
-spatial_mea_grocers_2019_DA <- spatial_mea_grocers_2019_DA |> left_join(access_grocers_2019, by="from_id") |>
-  mutate(s_i = S_i/Population)
-spatial_mea_grocers_2023_DA <- spatial_mea_grocers_2023_DA |> left_join(access_grocers_2023, by="from_id") |>
-  mutate(s_i = S_i/Population)
-```
-```{r}
-#to save space, remove ttms grocers
-rm(travel_matrix_grocer, travel_matrix_grocer_2019, travel_matrix_grocer_2023)
-```
 -->
 
-# Accessibility to employment
+# Travel time to employment
 
 Read DA-to-DA travel time matrices as a dataframe:
 ```{r}
