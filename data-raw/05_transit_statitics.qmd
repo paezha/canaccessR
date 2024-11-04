@@ -1,0 +1,61 @@
+---
+title: "transit statistics"
+format: html
+---
+
+Libraries:
+```{r}
+library(dplyr) # A Grammar of Data Manipulation
+library(glue) # Interpreted String Literals
+library(here) # A Simpler Way to Find Your Files
+library(lubridate) # Make Dealing with Dates a Little Easier
+library(readr) # Read Rectangular Text Data
+library(tidyr) # Tidy Messy Data
+#library(sf) # Simple Features for R
+#library(tibble) # Simple Data Frames
+#library(tmap) # Thematic Maps
+```
+
+- Downloaded "Urban Public Transit, February 2024" table: https://www150.statcan.gc.ca/n1/daily-quotidien/240419/dq240419b-eng.htm and https://doi.org/10.25318/2310025101-eng 
+
+#Reading in and filtering
+
+Reading in files
+```{r}
+transit_statistics <- read_csv(glue::glue(here::here(),
+                                          "/data-raw/2310025101_databaseLoadingData.csv"))
+```
+
+```{r}
+summary(transit_statistics)
+```
+
+Select the relevant information:
+```{r}
+transit_statistics <- transit_statistics |>
+  transmute(GEO = factor(GEO),
+            REF_DATE = lubridate::ym(REF_DATE) |>
+              as.Date(),
+         # Values are in millions
+         VALUE = VALUE * 1000000,
+         VAR = case_when(`Total revenue and total passenger trips` == "Total revenue, excluding subsidies" ~ "Revenue",
+                         `Total revenue and total passenger trips` == "Total passenger trips" ~ "Ridership"))
+```
+
+Pivot to a wide table to have a column for revenue and other for ridership:
+```{r}
+transit_statistics <- transit_statistics |>
+  pivot_wider(names_from = "VAR", values_from = "VALUE")
+```
+
+Save:
+```{r}
+save(transit_statistics,
+     file = glue::glue(here::here(),
+                       "/data/transit_statistics.rda"),
+     compress = "xz")
+```
+
+
+
+
