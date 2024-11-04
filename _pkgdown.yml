@@ -2,3 +2,25 @@ url: https://paezha.github.io/canaccessR/
 template:
   bootstrap: 5
 
+reference:
+
+- title: Travel Time Tables
+- subtitle: Employment
+  desc: Travel time tables to employment destinations
+- contents:
+  - starts_with("travel_")
+
+- title: Metropolitan Area boundaries
+  desc: Boundaries of metropolitan areas
+- contents:
+  - starts_with("census_data_cma")
+
+- title: Dissemination Area boundaries
+  desc: Boundaries of Dissemination Areas and socio-economic and demographic data
+- contents:
+  - starts_with("census_data_cma")  
+
+- title: Background boundaries
+  desc: Boundaries of Dissemination Areas and socio-economic and demographic data
+- contents:
+  - starts_with("region_")    
