@@ -5,6 +5,7 @@
 .httr-oauth
 .DS_Store
 .quarto
+**/*.pbf
 /data-raw/census
 /data-raw/DMTI_2023_EPOI
 /data-raw/r5_networks_2019
