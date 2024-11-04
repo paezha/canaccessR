@@ -15,9 +15,9 @@ reference:
 - title: Dissemination Area boundaries
   desc: Boundaries of Dissemination Areas and socio-economic and demographic data
 - contents:
-  - starts_with("census_data_cma")  
+  - starts_with("census_data_da")  
 - title: Background boundaries
-  desc: Boundaries of Dissemination Areas and socio-economic and demographic data
+  desc: Boundaries to provide a background to the metropolitan areas
 - contents:
   - starts_with("region_")
   
