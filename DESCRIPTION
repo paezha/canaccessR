@@ -1,6 +1,6 @@
 Package: canaccessR
 Title: Data Package For Transit Accessibility Analysis in Selected Canadian Metropolitan Areas
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     c(person("Robert N.", "Arku", , "soukhoa@mcmaster.ca", role = c("aut"),
            comment = c(ORCID = "")),
