@@ -1,0 +1,339 @@
+---
+title: "00_census_data"
+format: html
+---
+
+```{r}
+#| label: load packages
+library(cancensus) # Access, Retrieve, and Work with Canadian Census Data and Geography
+library(glue) # Interpreted String Literals
+library(here) # A Simpler Way to Find Your Files
+library(furrr) # Apply Mapping Functions in Parallel using Futures
+library(fs) # Cross-Platform File System Operations Based on 'libuv'
+library(sf) # Simple Features for R
+library(tidyverse) # Easily Install and Load the 'Tidyverse'
+
+cache_path <- fs::dir_create("./cache")
+data_path <- fs::dir_create("./data")
+data_raw_path <- fs::dir_create("./data-raw")
+
+# See here for instructions to obtain an API key: https://mountainmath.github.io/cancensus/index.html#api-key
+options(cancensus.api_key = "YOUR_KEY")
+options(cancensus.cache_path = cache_path)
+```
+
+
+# Census Data
+## Define CMA lists for iterative getting of data
+
+```{r}
+# list of CMA IDs for cancensus
+cma_geouid_list <- c(
+  "Toronto" = "35535", 
+  "Montréal" = "24462", 
+  "Vancouver" = "59933",
+  "Calgary" = "48825",
+  "Ottawa" = "505",
+  "Edmonton" = "48835",
+  "Québec City" = "24421",
+  "Winnipeg" = "46602",
+  "Hamilton" = "35537",
+  "Waterloo" = "35541",
+  "London" = "35555",
+  #"Niagara" = "35539",
+  "Halifax" = "12205",
+  "Oshawa" = "35532",
+  "Abbotsford" = "59932")
+
+# create list of analysis regions - collapsing some into others e.g. oshawa into toronto
+study_region_names_list <- c(
+  "Toronto" = "35535", 
+  "Montréal" = "24462", 
+  "Vancouver" = "59933",
+  "Calgary" = "48825",
+  "Ottawa" = "505",
+  "Edmonton" = "48835",
+  "Québec City" = "24421",
+  "Winnipeg" = "46602",
+  "Hamilton" = "35537",
+  "Waterloo" = "35541",
+  "London" = "35555",
+  #"Niagara" = "35539",
+  "Halifax" = "12205",
+  "Toronto" = "35532",
+  "Vancouver" = "59932") |> 
+  enframe() |> 
+  select(2:1) |> 
+  deframe()
+
+# ordered factor of study regions for figures and mapping
+study_region_names_order_list <- list(
+  "Toronto" = "gta", 
+  "Montréal" = "mtl", 
+  "Vancouver" = "van",
+  "Calgary" = "cal",
+  "Ottawa" = "ott",
+  "Edmonton" = "edm",
+  "Québec City" = "que",
+  "Winnipeg" = "win",
+  "Hamilton" = "ham",
+  "Waterloo" = "wat",
+  "London" = "ldn",
+  "Halifax" = "hal") |> 
+  enframe() |> 
+  select(2:1) |> 
+  deframe()
+
+# define analysis regions - use to collapse CMAs into larger analysis regions
+r5r_analysis_region_list <- c(
+  "ggh" = "35535", 
+  "mtl" = "24462", 
+  "van" = "59933",
+  "cal" = "48825",
+  "ott" = "505",
+  "edm" = "48835",
+  "que" = "24421",
+  "win" = "46602",
+  "ggh" = "35537",
+  "ggh" = "35541",
+  "ldn" = "35555",
+  "ggh" = "35539",
+  "hal" = "12205",
+  "ggh" = "35532",
+  "van" = "59932") |> 
+  enframe() |> 
+  select(2:1) |> 
+  deframe()
+
+r5r_named_networks <- list(
+  "ggh" = "ggh", 
+  "mtl" = "mtl", 
+  "van" = "van",
+  "cal" = "cal",
+  "ott" = "ott",
+  "edm" = "edm",
+  "que" = "que",
+  "win" = "win",
+  "ldn" = "ldn",
+  "hal" = "hal")
+```
+
+## Define MJ Census Vectors for 2016 Census
+
+```{r}
+mj_vectors_2016 <- c(
+  "tot_age_popn" = "v_CA16_1",
+  "age_0_to_14" = "v_CA16_4",
+  "age_15_to_64" = "v_CA16_61",
+  "age_65_plus" = "v_CA16_244",
+  "tot_cens_fam_priv_hh" = "v_CA16_484",
+  "fem_parent" = "v_CA16_489",
+  "LICO_AT" = "v_CA16_2555", 
+  "tot_LICO_status_2015" = "v_CA16_2510",
+  "knwl_off_lang" = "v_CA16_512",
+  "neither_EN_FR" = "v_CA16_524",
+  "Aborin_ID_priv_HH" = "v_CA16_3852",
+  "Aborin_ID" = "v_CA16_3855",
+  "tot_priv_hh_hsing_suit" = "v_CA16_4859",
+  "not_suitable" = "v_CA16_4861",
+  "dwell_condtns" = "v_CA16_4870",
+  "maj_rep_needed" = "v_CA16_4872",
+  "tot_shelt_cost" = "v_CA16_4886",
+  "shelt_gt30pc" = "v_CA16_4888",
+  "tot_tenant_HH" = "v_CA16_4897",
+  "tenant_HH_subsid" = "v_CA16_4898",
+  "tot_immig_stat" = "v_CA16_3405",
+  "immig_stat_last5" = "v_CA16_3432",
+  "tot_adm_immig_popn_1980_to_2016" = "v_CA16_3831",
+  "refugees" = "v_CA16_3846",
+  "visible_min" = "v_CA16_3957",
+  "tot_visible_min" = "v_CA16_3954",
+  "Black" = "v_CA16_3966",
+  "tot_lbr_f_15_plus" = "v_CA16_5597",
+  "lbr_f_unemp" = "v_CA16_5606",
+  "tot_commuting_dur_lbr_f_15_plus" = "v_CA16_5813",
+  "commuting_dur_60mins_plus" = "v_CA16_5828",
+  "ave_HH_size" = "v_CA16_425",
+  "tot_degree_age_15_plus" = "v_CA16_5051",
+  "bachelor_or_higher" = "v_CA16_5078",
+  "mhh_inc" = "v_CA16_2397",
+  "popn_dens" = "v_CA16_406",
+  "from_mode_total" = "v_CA16_5792",
+  "from_mode_car" = "v_CA16_5795",
+  "from_mode_pass" = "v_CA16_5798",
+  "from_mode_tran" = "v_CA16_5801",
+  "from_mode_walk" = "v_CA16_5804")
+```
+
+## Get CMA Data and Geometries
+
+```{r}
+census_data_cma <- map_dfr(
+  cma_geouid_list, 
+  ~ get_census(
+  dataset = 'CA16', 
+  regions = list(CMA = c(.x)),
+  vectors = mj_vectors_2016,
+  level = 'CMA',
+  geo_format = "sf",
+  use_cache = TRUE)) |> 
+  mutate(
+    r5r_analysis_region = as.factor(r5r_analysis_region_list[GeoUID]),
+    study_region_name = as.factor(study_region_names_list[GeoUID]),
+    study_region_name = fct_relevel(study_region_name, study_region_names_order_list)
+  )
+```
+
+join water erased geometries
+
+```{r}
+cmas_no_water <- st_read(glue::glue(here::here(), 
+                                    "/data-raw/census_data_cma_erased.shp"))
+
+census_data_cma <- census_data_cma |> 
+  st_drop_geometry() |> 
+  left_join(cmas_no_water, by = "GeoUID") |> 
+  st_as_sf() |> 
+  st_make_valid() |> 
+  st_transform(crs = 4326) 
+```
+
+## Get DA Data and Geometries
+
+```{r}
+census_data_da <- map_dfr(
+  cma_geouid_list, 
+  ~ get_census(
+  dataset = 'CA16', 
+  regions = list(CMA = c(.x)),
+  vectors = mj_vectors_2016,
+  level = 'DA',
+  geo_format = "sf",
+  use_cache = TRUE)) |> 
+  mutate(
+    study_region_name = study_region_names_list[CMA_UID],
+    study_region_name = fct_relevel(study_region_name, study_region_names_order_list),
+    r5r_analysis_region = r5r_analysis_region_list[CMA_UID]
+    )
+```
+
+```{r}
+das_no_water <- st_read(glue::glue(here::here(), 
+                                    "/data-raw/census_data_da_erased.shp"))
+
+# DA_EMP_2016_Canada.csv is a confidential file
+da_employment <- read_csv(glue::glue(here::here(), 
+                                    "/data/DA_EMP_2016_Canada.csv")) |> 
+  select(GeoUID, Total_Emp) |> 
+  mutate(GeoUID = as.character(GeoUID))
+
+census_data_da <- census_data_da |> 
+  left_join(da_employment |> select(GeoUID, Total_Emp), by = "GeoUID") |> 
+  mutate(Total_Emp = replace_na(Total_Emp, 0)) |> 
+  st_drop_geometry() |> 
+  left_join(das_no_water, by = "GeoUID") |>
+  st_as_sf() |> 
+  st_make_valid() |> 
+  st_transform(crs = 4326)
+```
+
+## Region Backgrounds for Mapping
+
+```{r}
+region_backgrounds <- st_read(glue::glue(here::here(), 
+                                    "/data-raw/pr_region_backgrounds.shp")) |> 
+  rename(region_name = regn_nm)
+```
+
+## Save Census Data
+
+```{r}
+# save(
+#   census_data_da, 
+#   , 
+#   region_backgrounds, 
+#   file = "./data/census_data.Rdata")
+```
+
+Regions used for routing in {r5r}:
+```{r}
+regions <- levels(census_data_cma$r5r_analysis_region)
+```
+
+Save CMA data by region:
+```{r}
+
+for(i in regions){
+  census_data_cma |>
+    rename(region = r5r_analysis_region) |>
+    filter(region == i) |>
+    select(Type, GeoUID, name, region) |>
+    assign(x = glue::glue("census_data_cma_{i}"),
+         value = _)
+  
+  save(list = glue::glue("census_data_cma_{i}"),
+       file = glue::glue(here::here(),
+                       "/data/census_data_cma_{i}.rda"),
+     compress = "xz")
+}
+
+```
+
+Save DA data by region:
+```{r}
+for(i in regions){
+  census_data_da |>
+    rename(region = r5r_analysis_region) |>
+    filter(region == i) |>
+    select(-c(`Shape Area`, `Region Name`, `Area (sq km)`, popn_dens, `study_region_name`)) |>
+    select(Type, GeoUID, region, everything()) |>
+    assign(x = glue::glue("census_data_da_{i}"),
+         value = _)
+  
+  save(list = glue::glue("census_data_da_{i}"),
+       file = glue::glue(here::here(),
+                       "/data/census_data_da_{i}.rda"),
+     compress = "xz")
+}
+
+```
+
+Save backgrounds by region:
+```{r}
+for(i in regions){
+  region_backgrounds |>
+    rename(region = regn_xp) |>
+    select(region) |>
+    filter(region == i) |>
+    assign(x = glue::glue("region_background_{i}"),
+         value = _)
+  
+  save(list = glue::glue("region_background_{i}"),
+       file = glue::glue(here::here(),
+                       "/data/region_background_{i}.rda"),
+     compress = "xz")
+}
+
+```
+
+Save all regions in a single object. These files are pretty heavy, so we will put them in a confidential folder:
+```{r}
+save(
+  census_data_da,
+  file = glue::glue(here::here(), "/data-raw/census/census_data_da.rda"),
+  compress = "xz")
+```
+
+```{r}
+save(
+  census_data_cma, 
+  file = glue::glue(here::here(), "/data-raw/census/census_data_cma.rda"),
+  compress = "xz")
+```
+
+```{r}
+save(
+  region_backgrounds, 
+  file = glue::glue(here::here(), "/data-raw/census/region_backgrounds.rda"),
+  compress = "xz")
+```

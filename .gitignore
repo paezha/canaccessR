@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.httr-oauth
+.DS_Store
+.quarto
+/data-raw/census
+/data-raw/DMTI_2023_EPOI
+/data-raw/r5_networks_2019
+/data-raw/r5_networks_2023
+/data-raw/ttms
+/data-raw/cache
+/data-raw/arcgis_pro
+/ttms

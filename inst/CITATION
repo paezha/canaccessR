@@ -1,0 +1,8 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "canaccessR: Data Package For Transit Accessibility Analysis in Selected Canadian Metropolitan Areas",
+  author   = "Christopher D. Higgins and Antonio Paez and Anastasia Soukhov",
+  year     = 2024,
+  note    = "R package version 0.0.0.9",
+  url      = "https://paezha.github.io/canaccessR"
+)

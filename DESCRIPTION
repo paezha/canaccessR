@@ -1,0 +1,23 @@
+Package: canaccessR
+Title: Data Package For Transit Accessibility Analysis in Selected Canadian Metropolitan Areas
+Version: 0.0.0.9000
+Authors@R: 
+    c(person("Christopher D.", "Higgins", , "soukhoa@mcmaster.ca", role = c("aut"),
+           comment = c(ORCID = "0000-0002-3551-7750")),
+      person("Antonio", "Páez", , "paezha@mcmaster.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-6912-9919")),
+      person("Anastasia", "Soukhov", , "soukhoa@mcmaster.ca", role = c("aut"),
+           comment = c(ORCID = "0000-0003-4371-4831")))
+Description: An open data product with travel times tables by transit on a representative
+    weekday of 2019 (pre-pandemic measures) and 2023 (post-pandemic measures) for the
+    analysis of employment accessibility, and travel time tables by transit on a 
+    representative weekend day on the same years for the analysis of grocery accessibility.
+License: CC BY SA 4.0
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    ggplot2,
+    sf
+URL: https://github.com/paezha/canaccessR
+BugReports: https://github.com/paezha/canaccessR/issues

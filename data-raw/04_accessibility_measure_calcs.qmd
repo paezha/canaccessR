@@ -1,0 +1,283 @@
+---
+title: "05_accessibility_measure_calcs"
+format: html
+---
+
+# Setup
+
+```{r}
+#| label: load packages
+
+#library(arrow) # Integration to 'Apache' 'Arrow'
+library(duckdb) # DBI Package for the DuckDB Database Management System
+library(dbplyr) # A 'dplyr' Back End for Databases
+library(fs) # Cross-Platform File System Operations Based on 'libuv'
+library(glue) # Interpreted String Literals
+library(here) # A Simpler Way to Find Your Files
+library(hms) # Pretty Time of Day
+library(sf) # Simple Features for R
+library(tidyverse) # Easily Install and Load the 'Tidyverse'
+library(tmap) # Thematic Maps
+#library(accessibility) 
+```
+
+# Load Data
+
+```{r}
+# Load census data. These files are confidential and were created in notebook 00_census_data.qmd
+load(file = glue::glue(here::here(), 
+                       "/data-raw/census/census_data_da.rda"))
+load(file = glue::glue(here::here(), 
+                       "/data-raw/census/census_data_cma.rda"))
+load(file = glue::glue(here::here(), 
+                       "/data-raw/census/region_backgrounds.rda"))
+
+census_data_da <- census_data_da |>  
+  mutate(Population = ifelse(is.na(Population), 0, Population),
+          Total_Emp = ifelse(is.na(Total_Emp), 0, Total_Emp))
+
+# Load grocers data. This is a confidential file that was created in notebook 01_cleaning_destinations.qmd
+load(glue::glue(here::here(),
+                       "/data-raw/DMTI_2023_EPOI/grocers.rda"))
+```
+
+We will only use the 12pm departure transit travel time matrices (already run in 03.qmd) to grocery stores (DA-to-store) and employment locations (DA-to-DAs). This will be the basis of our accessibility calculations.
+
+Census data by DA for join
+```{r}
+census_data_da_for_join <- census_data_da |> 
+  st_drop_geometry() |> 
+  select(GeoUID, study_region_name, Population) #|>  #including POPULATION here
+  #arrow::to_duckdb()
+```
+
+# Travel time to grocery stores
+
+First, grocery store ttms:
+
+<!-- 
+
+**WARNING**: The travel time matrices for 12 pm are missing.
+
+
+```{r}
+#| eval: false
+ttm_small_path <- fs::dir_create("./ttms_12pm")
+
+ttm_12pm_folders <- fs::dir_ls("./ttms", 
+                               type = "directory", 
+                               regexp = "12_00_00", 
+                               recurse = TRUE)
+
+walk(ttm_12pm_folders, ~dir_copy(.x, fs::path(ttm_small_path, (.x)), overwrite = TRUE))
+```
+
+read in travel time matrices as a data frame:
+```{r}
+# preparing the data frame to only consider only the 12:00pm departure (+15 min departure window), on Saturday!
+travel_matrix_grocer <- arrow::open_dataset(glue::glue(here::here(), 
+                                                       "/data-raw/ttms_12pm")) |>
+  collect() |>
+  mutate(
+    start_datetime = lubridate::ymd_hms(start_datetime)
+    ) |> filter(start_datetime  == as.POSIXct("2019-04-20 12:00:00", tz="UTC") |  
+         start_datetime  == as.POSIXct("2019-06-29 12:00:00", tz="UTC") |  #for quebec
+           start_datetime  == as.POSIXct("2023-04-22 12:00:00", tz="UTC")) |> #keeping saturdays!
+  
+  mutate(start_year = lubridate::year(start_datetime)) |> #adding the start_year
+  
+  left_join(census_data_da_for_join |> select(c(GeoUID, study_region_name, Population)), by = c("from_id" = "GeoUID")) #joining the population to the "from_id"
+
+```
+
+Assigning grocery store related travel impedance weights, for now, from Kwan 1998
+```{r}
+b0 <- 180
+travel_matrix_grocer <- travel_matrix_grocer |>  
+  mutate(
+    o_j = 1, # opportunity intensity of each grocery store is 1
+    f = exp(-travel_time_p50 ^ 2 / b0) #informed by Kwan 1998) 
+    )
+```
+
+
+## grocer spatial accessibility
+
+Let's also add non-competitive grocery store spatial accessibility to the frame:
+```{r}
+access_grocers_2019 <- travel_matrix_grocer_2019 |> group_by(from_id) |> summarise(S_i = sum(f*o_j))
+access_grocers_2023 <- travel_matrix_grocer_2023 |> group_by(from_id) |> summarise(S_i = sum(f*o_j))
+
+#also adding per capita spatial accessibility 
+spatial_mea_grocers_2019_DA <- spatial_mea_grocers_2019_DA |> left_join(access_grocers_2019, by="from_id") |>
+  mutate(s_i = S_i/Population)
+spatial_mea_grocers_2023_DA <- spatial_mea_grocers_2023_DA |> left_join(access_grocers_2023, by="from_id") |>
+  mutate(s_i = S_i/Population)
+```
+```{r}
+#to save space, remove ttms grocers
+rm(travel_matrix_grocer, travel_matrix_grocer_2019, travel_matrix_grocer_2023)
+```
+-->
+
+# Accessibility to employment
+
+Read DA-to-DA travel time matrices as a dataframe:
+```{r}
+# preparing the data frame to only consider only the 12:00pm departure (+15 min departure window), on Tuesday!
+travel_matrix_employ <- arrow::open_dataset(glue::glue(here::here(), 
+                                                       "/data-raw/ttms_employment")) |>
+  collect() |>
+  mutate(
+    start_datetime = lubridate::ymd_hms(start_datetime)
+    ) |>
+  filter(start_datetime  == as.POSIXct("2019-04-16 08:00:00", tz="UTC") |  
+           start_datetime  == as.POSIXct("2019-06-25 08:00:00", tz="UTC") |  #quebec!
+           start_datetime  == as.POSIXct("2023-04-18 08:00:00", tz="UTC")) |> #keeping tuesdays!
+  
+  mutate(start_year = lubridate::year(start_datetime)) |> #adding the start_year
+  
+  left_join(census_data_da_for_join |> select(c(GeoUID, study_region_name, Population)), by = c("from_id" = "GeoUID")) |> #joining the population to the "from_id"
+           
+  left_join(census_data_da |> st_drop_geometry() |> select(c(GeoUID, Total_Emp)), by = c("to_id" = "GeoUID")) #joining the JOBS to the "to_id"
+
+```
+
+Save travel time matrices for employment:
+```{r}
+regions <- levels(as.factor(travel_matrix_employ$region))
+
+for(i in regions){
+  travel_matrix_employ |>
+    filter(region == i) |>
+    assign(x = glue::glue("travel_matrix_emp_{i}"),
+         value = _)
+  
+  save(list = glue::glue("travel_matrix_emp_{i}"),
+       file = glue::glue(here::here(),
+                       "/data/travel_matrix_emp_{i}.rda"),
+     compress = "xz")
+}
+
+```
+
+<!--  
+Assigning employment related travel impedance weights, for now, for transit mode in Kapitllian et al. 2023 is used:
+
+```{r}
+travel_matrix_employ <- travel_matrix_employ |>  mutate(
+    f = case_when(
+      study_region_name == "Calgary" ~  (1 / (1 + (travel_time_p50 / 41.6) ^ 5.0643)),
+      study_region_name == "Edmonton" ~  (1 / (1 + (travel_time_p50 / 53) ^ 5.0643)),
+      study_region_name == "Toronto" ~ (1 / (1 + (travel_time_p50 / 49) ^ 4.4856)),
+      study_region_name == "Halifax" ~  (1 / (1 + (travel_time_p50 / 49) ^ 4.2019)),
+      study_region_name == "London" ~ (1 / (1 + (travel_time_p50 / 47) ^ 4.6801)),
+      study_region_name == "Montréal" ~ (1 / (1 + (travel_time_p50 / 44) ^ 4.1168)),
+      study_region_name == "Ottawa" ~  (1 / (1 + (travel_time_p50 / 42.2) ^ 5.0643)),
+      study_region_name == "Québec City" ~ (1 / (1 + (travel_time_p50 / 49) ^ 4.1947)),
+      study_region_name == "Vancouver" ~ (1 / (1 + (travel_time_p50 / 45) ^ 4.1339)),
+      study_region_name == "Winnipeg" ~ (1 / (1 + (travel_time_p50 / 45) ^ 4.6869)),
+      study_region_name == "Hamilton" ~ (1 / (1 + (travel_time_p50 / 50) ^ 4.6869)),
+      study_region_name == "Waterloo" ~ (1 / (1 + (travel_time_p50 / 40.3) ^ 4.6801)),
+      .default = 9999
+    ))
+```
+
+## job spatial availability
+
+Calculating employment spatial_availability for 2019:
+```{r}
+#for 2019
+travel_matrix_employ_2019 <- travel_matrix_employ |> filter(start_year == "2019")
+
+spatial_mea_employ_2019 <- 
+  travel_matrix_employ_2019 |> mutate(catch = 1) |>
+  sp_avail_detailed(o_id = from_id,
+                    d_id = to_id, 
+                    pop = Population,
+                    opp = Total_Emp,
+                    r = catch, #value of 1, all are in catchment.
+                    f = f, 
+                    alpha = 1) |>
+  group_by(from_id) |>
+  summarize(V_i = sum(V_ij, na.rm = TRUE))
+
+#Checks, to make sure the total number of opportunities equals the total sum of V_i:
+travel_matrix_employ_2019 |> group_by(to_id) |> summarise(jobs = first(Total_Emp)) |> select(jobs) |> sum()
+spatial_mea_employ_2019$V_i |> sum()
+```
+
+for 2023:
+```{r}
+travel_matrix_employ_2023 <- travel_matrix_employ |> filter(start_year == "2023")
+
+spatial_mea_employ_2023 <- 
+  travel_matrix_employ_2023 |> mutate(catch = 1) |> 
+  sp_avail_detailed(o_id = from_id,
+                    d_id = to_id, 
+                    pop = Population,
+                    opp = Total_Emp,
+                    r = catch, #value of 1, all are in catchment.
+                    f = f, 
+                    alpha = 1) |>
+  group_by(from_id) |>
+  summarize(V_i = sum(V_ij, na.rm = TRUE))
+
+#Checks, to make sure the total number of opportunities equals the total sum of V_i:
+travel_matrix_employ_2023 |> group_by(to_id) |> summarise(jobs = first(Total_Emp)) |> select(jobs) |> sum()
+spatial_mea_employ_2023$V_i |> sum()
+spatial_mea_employ_2023|> filter(V_i == 0)
+
+#NOTE: the total number of jobs (and population) differs between 2019 and 2023 -- this is because people/jobs with OD travel times are different from the 2019 vs. 2023 travel matrices. 
+```
+
+job spatial availability per capita:
+```{r}
+spatial_mea_employ_2019_DA <- spatial_mea_employ_2019 |> full_join(census_data_da, by=c("from_id" = "GeoUID")) |>
+  mutate(Population = ifelse(is.na(Population), 0, Population),
+         v_i = V_i/Population)
+
+spatial_mea_employ_2023_DA <- spatial_mea_employ_2023 |> full_join(census_data_da, by=c("from_id" = "GeoUID"))|>
+  mutate(Population = ifelse(is.na(Population), 0, Population),
+         v_i = V_i/Population)
+```
+
+## job spatial accessibility
+
+Let's add non-competitive job spatial accessibility to the frame:
+```{r}
+#calculating Hansen-type spatial accessibility, sum of (f*opportunities) for each origin (from_id) to all destination (possible to_ids):
+access_employ_2019 <- travel_matrix_employ_2019 |> group_by(from_id) |> summarise(S_i = sum(f*Total_Emp))
+access_employ_2023 <- travel_matrix_employ_2023 |> group_by(from_id) |> summarise(S_i = sum(f*Total_Emp))
+
+#inspect:
+access_employ_2019$S_i |> summary()
+access_employ_2023$S_i |> summary()
+
+#also adding per capita spatial accessibility 
+spatial_mea_employ_2019_DA <- spatial_mea_employ_2019_DA |> left_join(access_employ_2019, by="from_id") |>
+  mutate(s_i = S_i/Population)
+spatial_mea_employ_2023_DA <- spatial_mea_employ_2023_DA |> left_join(access_employ_2023, by="from_id") |>
+  mutate(s_i = S_i/Population)
+```
+
+```{r}
+#to save space, remove ttms grocers
+rm(travel_matrix_employ, travel_matrix_employ_2019, travel_matrix_employ_2023)
+```
+
+Saving all files
+```{r, eval=FALSE}
+#to save space.. remove the census data columns
+spatial_mea_employ_2019_DA <- spatial_mea_employ_2019_DA |> select(c("from_id", "study_region_name", "V_i", "v_i", "S_i", "s_i"))
+spatial_mea_employ_2023_DA <- spatial_mea_employ_2023_DA |> select(c("from_id", "study_region_name", "V_i", "v_i", "S_i", "s_i"))
+spatial_mea_grocers_2019_DA <- spatial_mea_grocers_2019_DA |> select(c("from_id", "study_region_name", "V_i", "v_i", "S_i", "s_i"))
+spatial_mea_grocers_2023_DA <- spatial_mea_grocers_2023_DA |> select(c("from_id", "study_region_name", "V_i", "v_i", "S_i", "s_i"))
+
+save(spatial_mea_employ_2019_DA, 
+     spatial_mea_employ_2023_DA , 
+     spatial_mea_grocers_2019_DA, 
+     spatial_mea_grocers_2023_DA , 
+     file="./data/spatial_access_measures.Rda")
+```
+
