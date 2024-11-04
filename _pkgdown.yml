@@ -28,4 +28,7 @@ reference:
   desc: Aggregated revenue and ridership statistics for Canada and regions
 - contents:
   - starts_with("transit_")  
-  
+- title: Population statistics
+  desc: Population statistics for selected metropolitan areas in Canada
+- contents:
+  - starts_with("population_")    

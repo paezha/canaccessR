@@ -1893,3 +1893,27 @@ NULL
 #'  data(transit_statistics)
 #'  summary(transit_statistics)
 "transit_statistics"
+
+#' Population statistics for selected metropolitan areas in Canada.
+#'
+#' A data frame with population for selected Census Metropolitan Areas in Canada
+#' for 2021.
+#'
+#' @format A data frame with 14 rows and 5 variables:
+#' \describe{
+#'   \item{size_rank}{Rank of the metropolitan area according to population}
+#'   \item{year}{The date of the data}
+#'   \item{cma_name}{Name of the Census Metropolitan Area}
+#'   \item{province}{Name of the province that is home to the Census Metropolitan Area}
+#'   \item{population}{Population of the Census Metropolitan Area}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name population_statistics
+#' @usage data(population_statistics)
+#' @source Statistics Canada. 
+#' @examples
+#'  data(population_statistics)
+#'  summary(population_statistics)
+"population_statistics"

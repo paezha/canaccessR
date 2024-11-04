@@ -1,0 +1,50 @@
+---
+title: "transit statistics"
+format: html
+---
+
+Libraries:
+```{r}
+library(dplyr) # A Grammar of Data Manipulation
+library(glue) # Interpreted String Literals
+library(here) # A Simpler Way to Find Your Files
+#library(lubridate) # Make Dealing with Dates a Little Easier
+library(readr) # Read Rectangular Text Data
+library(tidyr) # Tidy Messy Data
+```
+
+- Downloaded "Urban Public Transit, February 2024" table: https://www150.statcan.gc.ca/n1/daily-quotidien/240419/dq240419b-eng.htm and https://doi.org/10.25318/2310025101-eng 
+
+#Reading in and filtering
+
+Reading in files
+```{r}
+population_statistics <- read_csv(glue::glue(here::here(),
+                                          "/data-raw/population_statistics.csv"))
+```
+
+```{r}
+summary(population_statistics)
+```
+
+Select the relevant information:
+```{r}
+population_statistics <- population_statistics |>
+  transmute(size_rank = factor(`Size Rank`),
+            year = 2021,
+            cma_name = factor(`CMA Geographic Name`),
+            province = factor(Province),
+            population = `Population (2021)`)
+```
+
+Save:
+```{r}
+save(population_statistics,
+     file = glue::glue(here::here(),
+                       "/data/population_statistics.rda"),
+     compress = "xz")
+```
+
+
+
+
