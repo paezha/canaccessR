@@ -247,14 +247,6 @@ region_backgrounds <- st_read(glue::glue(here::here(),
 
 ## Save Census Data
 
-```{r}
-# save(
-#   census_data_da, 
-#   , 
-#   region_backgrounds, 
-#   file = "./data/census_data.Rdata")
-```
-
 Regions used for routing in {r5r}:
 ```{r}
 regions <- levels(census_data_cma$r5r_analysis_region)
@@ -267,7 +259,7 @@ for(i in regions){
   census_data_cma |>
     rename(region = r5r_analysis_region) |>
     filter(region == i) |>
-    select(Type, GeoUID, name, region) |>
+    select(Type, GeoUID, name, region, study_region_name) |>
     assign(x = glue::glue("census_data_cma_{i}"),
          value = _)
   
@@ -285,7 +277,7 @@ for(i in regions){
   census_data_da |>
     rename(region = r5r_analysis_region) |>
     filter(region == i) |>
-    select(-c(`Shape Area`, `Region Name`, `Area (sq km)`, popn_dens, `study_region_name`)) |>
+    select(-c(`Shape Area`, `Region Name`, `Area (sq km)`, popn_dens)) |>
     select(Type, GeoUID, region, everything()) |>
     assign(x = glue::glue("census_data_da_{i}"),
          value = _)

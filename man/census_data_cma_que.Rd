@@ -11,6 +11,7 @@ A simple features data frame with 1 row and 6 variables:
 \item{GeoUID}{Unique identifier of the statistical area}
 \item{name}{Name of the area}
 \item{region}{Identifier of the region: "que" for Quebec}
+\item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 \item{geometry}{Simple features geometry}
 }
 }

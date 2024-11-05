@@ -23,7 +23,7 @@ NULL
 #'   \item{region}{Identifier of the region: "cal" for Calgary}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Calgary}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -58,7 +58,7 @@ NULL
 #'   \item{region}{Identifier of the region: "edm" for Edmonton}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Edmonton}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -93,7 +93,7 @@ NULL
 #'   \item{region}{Identifier of the region: "ggh" for Greater Golden Horseshoe}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Greater Golden Horseshoe}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -128,7 +128,7 @@ NULL
 #'   \item{region}{Identifier of the region: "hal" for Halifax}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Halifax}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -163,7 +163,7 @@ NULL
 #'   \item{region}{Identifier of the region: "ldn" for London}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: London}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -198,7 +198,7 @@ NULL
 #'   \item{region}{Identifier of the region: "mtl" for Montréal}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Montréal}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -233,7 +233,7 @@ NULL
 #'   \item{region}{Identifier of the region: "ott" for Ottawa}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Ottawa}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -269,7 +269,7 @@ NULL
 #'   \item{region}{Identifier of the region: "que" for Quebec}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Quebec}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -304,7 +304,7 @@ NULL
 #'   \item{region}{Identifier of the region: "van" for Vancouver}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Vancouver}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -339,7 +339,7 @@ NULL
 #'   \item{region}{Identifier of the region: "win" for Winnipeg}
 #'   \item{start_year}{Year for which travel time was calculated}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-#'   \item{study_region_name}{Name of the Metropolita Area: Winnipeg}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #'   \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 #' }
@@ -375,7 +375,7 @@ NULL
 #'   \item{region}{Identifier of the region: "cal" for Calgary}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Calgary}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -410,7 +410,7 @@ NULL
 #'   \item{region}{Identifier of the region: "edm" for Edmonton}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Edmonton}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -445,7 +445,7 @@ NULL
 #'   \item{region}{Identifier of the region: "ggh" for Greater Golden Horseshoe}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Greater Golden Horseshoe}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -480,7 +480,7 @@ NULL
 #'   \item{region}{Identifier of the region: "hal" for Halifax}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Halifax}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -515,7 +515,7 @@ NULL
 #'   \item{region}{Identifier of the region: "ldn" for London}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: London}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -550,7 +550,7 @@ NULL
 #'   \item{region}{Identifier of the region: "mtl" for Montréal}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Montréal}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -585,7 +585,7 @@ NULL
 #'   \item{region}{Identifier of the region: "ott" for Ottawa}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Ottawa}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -620,7 +620,7 @@ NULL
 #'   \item{region}{Identifier of the region: "que" for Quebec}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Quebec}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -655,7 +655,7 @@ NULL
 #'   \item{region}{Identifier of the region: "van" for Vancouver}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Vancouver}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -690,7 +690,7 @@ NULL
 #'   \item{region}{Identifier of the region: "win" for Winnipeg}
 #'   \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 #'   \item{start_year}{Year for which travel time was calculated}
-#'   \item{study_region_name}{Name of the Metropolita Area: Winnipeg}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 #' }
 #'
@@ -717,6 +717,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "cal" for Calgary}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -740,6 +741,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "edm" for Edmonton}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -763,6 +765,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "ggh" for Golden Horseshoe}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -786,6 +789,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "hal" for Halifax}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -809,6 +813,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "ldn" for London}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -833,6 +838,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "mtl" for Montréal}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -856,6 +862,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "ott" for Ottawa}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -879,6 +886,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "que" for Quebec}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -902,6 +910,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "van" for Vancouver}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -925,6 +934,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "win" for Winnipeg}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -948,6 +958,7 @@ NULL
 #'   \item{GeoUID}{Unique identifier of the statistical area}
 #'   \item{name}{Name of the area}
 #'   \item{region}{Identifier of the region: "win" for Winnipeg}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{geometry}{Simple features geometry}
 #' }
 #'
@@ -1089,6 +1100,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }
@@ -1160,6 +1172,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }
@@ -1231,6 +1244,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }
@@ -1302,6 +1316,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }
@@ -1373,6 +1388,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }
@@ -1444,6 +1460,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }
@@ -1515,6 +1532,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }
@@ -1586,6 +1604,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }
@@ -1657,6 +1676,7 @@ NULL
 #'   \item{from_mode_total}{define_from_mode_total}
 #'   \item{from_mode_car}{define_from_mode_car}
 #'   \item{from_mode_pass}{define_from_mode_pass}
+#'   \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 #'   \item{Total_Emp}{define_Total_Emp}
 #'   \item{geometry}{Simple features geometry}
 #' }

@@ -13,7 +13,7 @@ A data frame with 8,828,718 rows and 8 variables:
 \item{region}{Identifier of the region: "ggh" for Greater Golden Horseshoe}
 \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
 \item{start_year}{Year for which travel time was calculated}
-\item{study_region_name}{Name of the Metropolita Area: Greater Golden Horseshoe}
+\item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 }
 }

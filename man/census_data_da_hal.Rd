@@ -57,6 +57,7 @@ A simple features data frame with 601 row and 53 variables:
 \item{from_mode_total}{define_from_mode_total}
 \item{from_mode_car}{define_from_mode_car}
 \item{from_mode_pass}{define_from_mode_pass}
+\item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 \item{Total_Emp}{define_Total_Emp}
 \item{geometry}{Simple features geometry}
 }

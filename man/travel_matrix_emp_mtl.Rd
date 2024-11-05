@@ -13,7 +13,7 @@ A data frame with 20,091,411 rows and 9 variables:
 \item{region}{Identifier of the region: "mtl" for Montréal}
 \item{start_year}{Year for which travel time was calculated}
 \item{start_datetime}{Date and time of departure for a trip that originates at the Dissemination Area of origin}
-\item{study_region_name}{Name of the Metropolita Area: Montréal}
+\item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 \item{Population}{Total population in the Dissemination Area of origin (2016 Census)}
 \item{Total_Emp}{Total employment in the Dissemination Area of destination (2016 Census)}
 }
