@@ -3,7 +3,7 @@ Title: Data Package For Transit Accessibility Analysis in Selected Canadian Metr
 Version: 0.0.0.9001
 Authors@R: 
     c(person("Robert N.", "Arku", , "soukhoa@mcmaster.ca", role = c("aut"),
-           comment = c(ORCID = "")),
+           comment = c(ORCID = "0000-0002-2018-886X")),
       person("Christopher D.", "Higgins", , "soukhoa@mcmaster.ca", role = c("aut"),
            comment = c(ORCID = "0000-0002-3551-7750")),
       person("Antonio", "Páez", , "paezha@mcmaster.ca", role = c("aut", "cre"),
