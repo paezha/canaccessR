@@ -17,46 +17,46 @@ A simple features data frame with 1,299 row and 53 variables:
 \item{CSD_UID}{Unique identifier of the census CSD}
 \item{CT_UID}{Unique identifier of the Census Tract}
 \item{CMA_UID}{Unique identifier of the census Census Metropolitan Area}
-\item{tot_age_popn}{Total age population}
-\item{age_0_to_14}{Total population aged 0-14 years old in dissemination area in 2016}
-\item{age_15_to_64}{Total population aged 15-64 years old in dissemination area in 2016}
-\item{age_65_plus}{Total population aged 65 years and older in dissemination area in 2016}
-\item{tot_cens_fam_priv_hh}{Total number of census families in private households in dissemination area in 2016}
-\item{fem_parent}{define_fem_parent}
-\item{LICO_AT}{define_lico_at}
-\item{tot_LICO_status_2015}{define_tot_LICO}
-\item{knwl_off_lang}{define_knwl_off_lang}
-\item{neither_EN_FR}{define_neither_EN_FR}
-\item{Aborin_ID_priv_HH}{define_Aborin_ID_priv_HH}
-\item{Aborin_ID}{define_aborivin_ID}
-\item{tot_priv_hh_hsing_suit}{define_tot_priv_hh_hsing_suit}
-\item{not_suitable}{define_not_suitable}
-\item{dwell_condtns}{define_dwell_condtns}
-\item{maj_rep_needed}{define_maj_rep_needed}
-\item{tot_shelt_cost}{define_tot_shelt_cost}
-\item{shelt_gt30pc}{define_shelt_gt30pc}
-\item{tot_tenant_HH}{define_tot_tenant_HH}
-\item{tenant_HH_subsid}{define_tenant_HH_subsid}
-\item{tot_immig_stat}{define_tot_immig_stat}
-\item{immig_stat_last5}{define_immig_stat_last5}
-\item{tot_adm_immig_popn_1980_to_2016}{define_tot_adm_immig_popn_1980_to_2016}
-\item{refugees}{define_refugees}
-\item{visible_min}{define_visible_min}
-\item{tot_visible_min}{define_tot_visible_min}
-\item{Black}{define_Black}
-\item{tot_lbr_f_15_plus}{define_tot_lbr_f_15_plus}
-\item{lbr_f_unemp}{define_lbr_f_unemp}
-\item{tot_commuting_dur_lbr_f_15_plus}{define_tot_commuting_dur_lbr_f_15_plus}
-\item{commuting_dur_60mins_plus}{define_commuting_dur_60mins_plus}
-\item{from_mode_tran}{define_from_mode_tran}
-\item{from_mode_walk}{define_from_mode_walk}
-\item{ave_HH_size}{define_ave_HH_size}
-\item{tot_degree_age_15_plus}{define_tot_degree_age_15_plus}
-\item{bachelor_or_higher}{define_bachelor_or_higher}
-\item{mhh_inc}{define_mhh_inc}
+\item{tot_age_popn}{CA 2016 Census; 100\% data; Total - Age}
+\item{age_0_to_14}{CA 2016 Census; 100\% data; Total - Age; 0 to 14 years}
+\item{age_15_to_64}{CA 2016 Census; 100\% data; Total - Age; 15 to 64 years}
+\item{age_65_plus}{CA 2016 Census; 100\% data; Total - Age; 65 years and over}
+\item{tot_cens_fam_priv_hh}{CA 2016 Census; 100\% data; Census Families; Total number of census families in private households - 100\% data}
+\item{fem_parent}{CA 2016 Census; 100\% data; Census Families; Total number of census families in private households - 100\% data; Total lone-parent families by sex of parent; Female parent}
+\item{LICO_AT}{CA 2016 Census; 100\% data; Income; Low Income Measures; In low income based on the Low-income cut-offs, after tax (LICO-AT)}
+\item{tot_LICO_status_2015}{CA 2016 Census; 100\% data; Income; Low Income Measures; Total - Low-income status in 2015 for the population in private households to whom low-income concepts are applicable - 100\% data}
+\item{knwl_off_lang}{CA 2016 Census; 100\% data; Language; Official Language; Total - Knowledge of official languages for the total population excluding institutional residents - 100\% data}
+\item{neither_EN_FR}{CA 2016 Census; 100\% data; Language; Official Language; Total - Knowledge of official languages for the total population excluding institutional residents - 100\% data; Neither English nor French}
+\item{Aborin_ID_priv_HH}{CA 2016 Census; 25\% Data; Aboriginal; Total - Aboriginal identity for the population in private households - 25\% sample data}
+\item{Aborin_ID}{CA 2016 Census; 25\% Data; Aboriginal; Total - Aboriginal identity for the population in private households - 25\% sample data; Aboriginal identity}
+\item{tot_priv_hh_hsing_suit}{CA 2016 Census; 25\% Data; Housing; Household Characteristics; Total - Private households by housing suitability - 25\% sample data}
+\item{not_suitable}{CA 2016 Census; 25\% Data; Housing; Household Characteristics; Total - Private households by housing suitability - 25\% sample data; Not suitable}
+\item{dwell_condtns}{CA 2016 Census; 25\% Data; Housing; Dwelling Characteristics; Total - Occupied private dwellings by dwelling condition - 25\% sample data}
+\item{maj_rep_needed}{CA 2016 Census; 25\% Data; Housing; Dwelling Characteristics; Total - Occupied private dwellings by dwelling condition - 25\% sample data; Major repairs needed}
+\item{tot_shelt_cost}{CA 2016 Census; 25\% Data; Housing; Shelter Cost; Total -  Owner and tenant households with household total income greater than zero, in non-farm, non-reserve private dwellings by shelter-cost-to-income ratio - 25\% sample data}
+\item{shelt_gt30pc}{CA 2016 Census; 25\% Data; Housing; Shelter Cost; Total -  Owner and tenant households with household total income greater than zero, in non-farm, non-reserve private dwellings by shelter-cost-to-income ratio - 25\% sample data; Spending 30\% or more of income on shelter costs}
+\item{tot_tenant_HH}{CA 2016 Census; 25\% Data; Housing; Shelter Cost; Total - Tenant households in non-farm, non-reserve private dwellings - 25\% sample data}
+\item{tenant_HH_subsid}{CA 2016 Census; 25\% Data; Housing; Shelter Cost; Total - Tenant households in non-farm, non-reserve private dwellings - 25\% sample data; \% of tenant households in subsidized housing}
+\item{tot_immig_stat}{CA 2016 Census; 25\% Data; Citizenship and Immigration; Total - Immigrant status and period of immigration for the population in private households - 25\% sample data}
+\item{immig_stat_last5}{CA 2016 Census; 25\% Data; Citizenship and Immigration; Total - Immigrant status and period of immigration for the population in private households - 25\% sample data; Immigrants; 2011 to 2016}
+\item{tot_adm_immig_popn_1980_to_2016}{CA 2016 Census; 25\% Data; Citizenship and Immigration; Total - Admission category and applicant type for the immigrant population in private households who landed between 1980 and 2016 - 25\% sample data}
+\item{refugees}{CA 2016 Census; 25\% Data; Citizenship and Immigration; Total - Admission category and applicant type for the immigrant population in private households who landed between 1980 and 2016 - 25\% sample data; Refugees}
+\item{visible_min}{CA 2016 Census; 25\% Data; Minority / Origin; Total - Visible minority for the population in private households - 25\% sample data; Total visible minority population}
+\item{tot_visible_min}{CA 2016 Census; 25\% Data; Minority / Origin; Total - Visible minority for the population in private households - 25\% sample data}
+\item{Black}{CA 2016 Census; 25\% Data; Minority / Origin; Total - Visible minority for the population in private households - 25\% sample data; Total visible minority population; Black}
+\item{tot_lbr_f_15_plus}{CA 2016 Census; 25\% Data; Work; Labour Force Status; Total - Population aged 15 years and over by Labour force status - 25\% sample data}
+\item{lbr_f_unemp}{CA 2016 Census; 25\% Data; Work; Labour Force Status; Total - Population aged 15 years and over by Labour force status - 25\% sample data; In the labour force; Unemployed}
+\item{tot_commuting_dur_lbr_f_15_plus}{CA 2016 Census; 25\% Data; Commute; Total - Commuting duration for the employed labour force aged 15 years and over in private households with a usual place of work or no fixed workplace address - 25\% sample data}
+\item{commuting_dur_60mins_plus}{CA 2016 Census; 25\% Data; Commute; Total - Commuting duration for the employed labour force aged 15 years and over in private households with a usual place of work or no fixed workplace address - 25\% sample data; 60 minutes and over}
+\item{from_mode_tran}{CA 2016 Census; 25\% Data; Commute; Total - Main mode of commuting for the employed labour force aged 15 years and over in private households with a usual place of work or no fixed workplace address - 25\% sample data; Public transit}
+\item{from_mode_walk}{CA 2016 Census; 25\% Data; Commute; Total - Main mode of commuting for the employed labour force aged 15 years and over in private households with a usual place of work or no fixed workplace address - 25\% sample data; Walked}
+\item{ave_HH_size}{CA 2016 Census; 100\% data; Households; Household size; Average household size}
+\item{tot_degree_age_15_plus}{CA 2016 Census; 25\% Data; Education; Certificate/Degree; Total - Highest certificate, diploma or degree for the population aged 15 years and over in private households - 25\% sample data}
+\item{bachelor_or_higher}{CA 2016 Census; 25\% Data; Education; Certificate/Degree; Total - Highest certificate, diploma or degree for the population aged 15 years and over in private households - 25\% sample data; Postsecondary certificate, diploma or degree; University certificate, diploma or degree at bachelor level or above}
+\item{mhh_inc}{CA 2016 Census; 100\% data; Income; Households; Total - Income statistics in 2015 for private households by household size - 100\% data; Median total income of households in 2015 ($)}
 \item{from_mode_total}{define_from_mode_total}
-\item{from_mode_car}{define_from_mode_car}
-\item{from_mode_pass}{define_from_mode_pass}
+\item{from_mode_total}{CA 2016 Census; 25\% Data; Commute; Total - Main mode of commuting for the employed labour force aged 15 years and over in private households with a usual place of work or no fixed workplace address - 25\% sample data}
+\item{from_mode_pass}{CA 2016 Census; 25\% Data; Commute; Total - Main mode of commuting for the employed labour force aged 15 years and over in private households with a usual place of work or no fixed workplace address - 25\% sample data; Car, truck, van - as a passenger}
 \item{study_region_name}{Name of the Census Metropolitan Area (CMA)}
 \item{Total_Emp}{define_Total_Emp}
 \item{geometry}{Simple features geometry}
