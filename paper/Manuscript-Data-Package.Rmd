@@ -1,0 +1,142 @@
+---
+title: "The Title of the Paper"
+author:
+  - name: "Anon1"
+    email: "Anon1@anon.org"
+    affiliation: CODE
+    footnote: 1
+  - name: "Anon2"
+    email: "Anon2@anon.org"
+    affiliation: CODE
+  - name: "Anon3"
+    email: "Anon3@anon.org"
+    affiliation: CODE
+address:
+  - code: CODE
+    address: "Some school"
+footnote:
+  - code: 1
+    text: "Corresponding Author"
+abstract: 
+  "Abstract" 
+    
+keywords: Accessibility; transit; open data products; travel time; employment; grocery stores 
+classoption:
+  - Royal
+  - times
+bibliography: bibfile.bib
+bibliographystyle: sageh
+output:
+  rticles::sage_article:
+    keep_tex: yes
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r knitr-setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  cache = FALSE,
+  warning = FALSE,
+  comment = '', 
+  out.width = "1\\linewidth")
+
+knitr::knit_hooks$set(inline = function(x) {
+  if (is.numeric(x)) {
+    format(x, big.mark = ",", scientific = FALSE)
+  } else {
+    x
+  }
+})
+
+opts <- options(knitr.kable.NA = "")
+```
+
+```{r install-data-package, include=FALSE}
+if (!require("canaccessR", character.only = TRUE)) {
+      remotes::install_github("paezha/canaccessR",
+                        build_vignettes = TRUE)
+}
+
+rm(list=ls())
+```
+
+```{r load-packages, include=FALSE, cache=FALSE}
+# Load packages
+
+```
+
+```{r load-data, include = FALSE}
+
+```
+
+# Introduction
+
+The objective of this paper is...
+
+# Data Sources
+
+Quickly describe the data sources before going into more detail.
+
+## OpenStreetMaps
+
+Files used for routing.
+
+## Census Data
+
+Employment etc.
+
+# Data processing
+
+Routing, cleaning, etc. 
+
+# How to use {canaccessR}
+
+This section presents some potential applications of the data package.
+
+## Descriptive statistics
+
+Maybe?
+
+<!--
+# Python integration
+
+Possibly provide a Jupyter Notebook containing a Python script to demonstrate how to read R data files (.rda) and convert them into Pandas DataFrames.
+
+-->
+
+# Concluding remarks
+
+What is the value added to the raw data.
+
+# Declaration of Conflicting Interests
+
+The author(s) declared no potential conflicts of interest with respect
+to the research, authorship, and/or publication of this article.
+
+# Funding
+
+The author(s) disclosed receipt of the following financial support for
+the research, authorship, and/or publication of this article: This work
+was supported by the Social Sciences and Humanities Research Council of
+Canada (*More description about the funding source after the review
+process*).
+
+# ORCID
+
+Author 1 
+
+
+Author 2 
+
+
+Author 3
+
+
+# Data availability statement
+
+The {canaccessR} data package can be found and installed on Github
+(*link*).
+
+# References {#references .unnumbered}
