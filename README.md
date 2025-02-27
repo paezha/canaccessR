@@ -32,7 +32,7 @@ This is a basic example which shows you how to solve a common problem:
 library(canaccessR)
 library(ggplot2)
 library(sf)
-#> Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE
+#> Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
 ```
 
 Load the travel time table to employment for Halifax:
@@ -68,3 +68,5 @@ ggplot() +
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+We are currently working on a Data Paper.
