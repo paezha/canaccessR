@@ -24,9 +24,9 @@ footnote:
   - code: 1
     text: "Corresponding Author"
 abstract: 
-  "In this paper, we describe the {canaccesR} package, an open data product (OPS) created using the R statistical language. {canaccess} is a data package that provides public transit travel time estimates (travel time matrices - TTM) to employment locations and grocery stores across the 12 largest Canadian metropolitan areas. We calculate these estimates for each Dissemination Area (DA) within these regions for the years 2019 and 2023. To do so, we use the {r5r} R package, General Transit Feed Specification (GTFS), OpenStreetMap (OSM), DMTI’s Enhanced Points of Interest, and Statistics Canada Census data. This data package can be used by researchers, practitioners, and transit agencies to estimate accessibility to essential services across these regions. These estimates can be used to compare different regions across Canada in terms of their accessibility and to conduct within-region equity assessments regarding access to services, which can inform improvements in transportation policies related to accessibility. The package is still in its initial phase and may undergo expansions in the future by adding TTM's for other destinations (e.g., schools, healthcare facilities). Finally, as an OPS, the {canaccess} package allows for open exploration, use, and contribution by users through its GitHub repository." 
+  "In this paper, we describe the {canaccesR} package, an open data product (ODPs) created using the R statistical language. {canaccess} is a data package that provides public transit travel time estimates (travel time matrices - TTM) to employment locations and grocery stores across the 12 largest Canadian metropolitan areas. We calculate these estimates for each Dissemination Area (DA) within these regions for the years 2019 and 2023. To do so, we use the {r5r} R package, General Transit Feed Specification (GTFS), OpenStreetMap (OSM), DMTI’s Enhanced Points of Interest, and Statistics Canada Census data. This data package can be used by researchers, practitioners, and transit agencies to estimate accessibility to essential services across these regions. These estimates can be used to compare different regions across Canada in terms of their accessibility and to conduct within-region equity assessments regarding access to services, which can inform improvements in transportation policies related to accessibility. The package is still in its initial phase and may undergo expansions in the future by adding TTM's for other destinations (e.g., schools, healthcare facilities). Finally, as an ODPs, the {canaccess} package allows for open exploration, use, and contribution by users through its GitHub repository." 
     
-keywords: Accessibility; public transit; open data products; OPS; travel time; employment; grocery stores.
+keywords: Accessibility; public transit; open data products (ODPs); travel time; employment; grocery stores.
 classoption:
   - Royal
   - times
@@ -79,7 +79,7 @@ rm(list=ls())
 
 # Introduction
 
-The objective of this paper is to describe the {canaccesR} Open Data Product (OPS), an open data package.
+The objective of this paper is to describe the {canaccesR} Open Data Product (ODP), an open data package.
 The package's main contents are public transit travel time matrices (TTM) estimates to employment and groceries stores from the 12 largest Canadian metropolitan areas in the years 2019 and 2023.
 These estimates were created by leveraging expertise in data science, computer programming, and transportation accessibility, using the {r5r} R package [PEREIRA CITATION].
 We used transport and street network, population, and employment data from different sources to arrive at our estimations.
@@ -87,7 +87,7 @@ We used transport and street network, population, and employment data from diffe
 
 The main contribution of this data package is to provide analysis-ready data for Canada's largest cities, thus making the field of accessibility research and urban analytics more accessible.
 Estimating accessibility, i.e., the potential offered by the transportation system to reach destinations [Páez, Scott, and Morency, “Measuring Accessibility.”] requires specialized datasets and technical expertise.
-By integrating and processing raw data from diverse sources, estimating TTM's for two destinations types (e.g., jobs and groceries) across Canada's largest cities of the country, and making these findings publicly available, we hope this OPS can advance the field of urban analytics in Canada.
+By integrating and processing raw data from diverse sources, estimating TTM's for two destinations types (e.g., jobs and groceries) across Canada's largest cities of the country, and making these findings publicly available, we hope this ODP can advance the field of urban analytics in Canada.
 
 We anticipate that these datasets will enable researchers to analyze changes in public transit accessibility to essential destinations, such as employment centers and grocery stores, in the largest urban areas of the country.
 Consequently, the package addresses the need for ready-to-use public transit accessibility data, helping researchers, transit agencies, and the general public in evaluating equity in transportation accessibility within and across Canada.
@@ -152,7 +152,7 @@ In other words, we hope that by making these datasets publicly available, future
 
 <!-- In conclusion, we argue that the {canaccesR} package adds  -->
 
-<!-- In this sense, the package fulfill one of the main tenets of OPS products by combining expertise in data science, transportation accessibility, and demographics and generating a set of useful and ready-to-use data vital to estimating transportation accessibility, rather than simply making raw data available. -->
+<!-- In this sense, the package fulfill one of the main tenets of ODPs products by combining expertise in data science, transportation accessibility, and demographics and generating a set of useful and ready-to-use data vital to estimating transportation accessibility, rather than simply making raw data available. -->
 <!-- In other words, the travel time matrics presented by this  -->
 
 
