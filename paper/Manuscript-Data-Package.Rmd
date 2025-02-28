@@ -79,8 +79,6 @@ rm(list=ls())
 
 # Introduction
 
-This is a test.
-
 The objective of this paper is to describe the {canaccesR} Open Data Product (ODP), an open data package.
 The package's main contents are public transit travel time matrices (TTM) estimates to employment and groceries stores from the 12 largest Canadian metropolitan areas in the years 2019 and 2023.
 These estimates were created by leveraging expertise in data science, computer programming, and transportation accessibility, using the {r5r} R package [PEREIRA CITATION].
