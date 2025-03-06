@@ -28,14 +28,14 @@ metropolitan areas.}
 Soukhov\affilnum{}, Robert Nutifafa Arku\affilnum{}, Christopher
 Higgins\affilnum{}, Antonio Páez\affilnum{}}
 
-\affiliation{\affilnum{}{}}
+\affiliation{}
 
 
 
 \begin{abstract}
 In this paper, we describe the \{canaccesR\} package, an open data
-product (OPS) created using the R statistical language. \{canaccess\} is
-a data package that provides public transit travel time estimates
+product (ODPs) created using the R statistical language. \{canaccess\}
+is a data package that provides public transit travel time estimates
 (travel time matrices - TTM) to employment locations and grocery stores
 across the 12 largest Canadian metropolitan areas. We calculate these
 estimates for each Dissemination Area (DA) within these regions for the
@@ -50,47 +50,62 @@ assessments regarding access to services, which can inform improvements
 in transportation policies related to accessibility. The package is
 still in its initial phase and may undergo expansions in the future by
 adding TTM's for other destinations (e.g., schools, healthcare
-facilities). Finally, as an OPS, the \{canaccess\} package allows for
+facilities). Finally, as an ODPs, the \{canaccess\} package allows for
 open exploration, use, and contribution by users through its GitHub
 repository.
 \end{abstract}
 
-\keywords{Accessibility; public transit; open data products; OPS; travel
-time; employment; grocery stores.}
+\keywords{Accessibility; public transit; open data products (ODPs);
+travel time; employment; grocery stores.}
 
 \maketitle
 
 \section{Introduction}\label{introduction}
 
-The objective of this paper is to describe the \{canaccesR\} Open Data
-Product (OPS), an open data package. The package's main contents are
-public transit travel time matrices (TTM) estimates to employment and
-groceries stores from the 12 largest Canadian metropolitan areas in the
-years 2019 and 2023. These estimates were created by leveraging
-expertise in data science, computer programming, and transportation
-accessibility, using the \{r5r\} R package {[}PEREIRA CITATION{]}. We
-used transport and street network, population, and employment data from
-different sources to arrive at our estimations.
+The objective of this paper is to describe the \{canaccesR\} open data
+package. Its main contents are a set of public transit travel time
+matrices (TTM) estimates to employment and groceries stores from the 12
+largest Canadian metropolitan areas in the years 2019 and 2023. These
+estimates were created by leveraging expertise in data science, computer
+programming, and transportation accessibility, using the \{r5r\} R
+package \citep{pereiraR5rRapidRealistic2021}. We used transport and
+street network, population, and employment data from different sources
+to estimate these TTM's datasets.
 
-The main contribution of this data package is to provide analysis-ready
-data for Canada's largest cities, thus making the field of accessibility
-research and urban analytics more accessible. Estimating accessibility,
-i.e., the potential offered by the transportation system to reach
-destinations {[}Páez, Scott, and Morency, ``Measuring
-Accessibility.''{]} requires specialized datasets and technical
-expertise. By integrating and processing raw data from diverse sources,
-estimating TTM's for two destinations types (e.g., jobs and groceries)
-across Canada's largest cities of the country, and making these findings
-publicly available, we hope this OPS can advance the field of urban
-analytics in Canada.
+Estimating accessibility - the potential offered by the transportation
+system to reach destinations
+\citep{paezMeasuringAccessibilityPositive2012} - requires specialized
+datasets and technical expertise. Despite recent advancements in the
+field, ready-to-use available data on transportation accessibility is
+still sparse. Thus, we leverage technical knowledge to make publicly
+available ready-to-use data on transportation accessibility. To create
+the package, we integrated and processed raw data from diverse sources,
+estimated TTM's for two destinations types (e.g., jobs and groceries)
+across the largest cities in the country, and distributed these findings
+through this transparent and open source data product. Our main
+contribution is to provide analysis-ready data for Canada's largest
+cities, thus making the fields of accessibility research and urban
+analytics more accessible.
 
-We anticipate that these datasets will enable researchers to analyze
-changes in public transit accessibility to essential destinations, such
-as employment centers and grocery stores, in the largest urban areas of
-the country. Consequently, the package addresses the need for
-ready-to-use public transit accessibility data, helping researchers,
-transit agencies, and the general public in evaluating equity in
-transportation accessibility within and across Canada.
+The package's main audiences are Canadian researchers in urban planning
+and transportation and transportation system agencies. We anticipate
+three main uses for the open data product (ODP) described in this paper.
+First, the datasets allow for static assessment of the level of public
+transit accessibility across the country's largest cities before and
+after the COVID-19 pandemic. In other words, we make it easier for those
+interested to compare cities and their level of public transit
+accessibility to essential destinations (such as employment centers and
+groceries stores). Second, researchers can use the package's information
+as inputs to evaluate changes in accessibility throughout this period.
+Researchers may also investigate disparities in these changes across
+space within those cities, given the spacial character of the datasets
+made available here. Third, as is common practice in transportation
+accessibility research, these evaluations can substantiate broader
+investigations on matters of justice and equity in transportation. For
+example, the TTM estimates allow for evaluating the evolution of public
+transit's accessibility by income or spatial distribution across all
+Dissemination Areas (DA's) of each of the 12 cities in the sample
+\citep{pargaDemocraticAccessOur2024}.
 
 Besides this introduction, we organize this paper as follows. The next
 section contains a description of the data sources we used to construct
@@ -104,23 +119,39 @@ urban analytics and science community.
 
 \section{Data Sources}\label{data-sources}
 
+The locations included in the data package comprise the 12 largest
+(population-wise) Census metropolitan areas (CMA's) based on the 2021
+Canadian Census \citep{governmentofcanada2021CensusPopulation2021}
+\footnote{We included Oshawa, Ontario, as part of the Greater Toronto
+  Area (GTA) because of the former's proximity to the latter. We also
+  included Abbotsford-Mission, British Columbia, as part of the
+  Vancouver metropolitan area because of the former's proximity to a
+  transit station on the region's West Coast Express commuter rail line.},
+which are Toronto, Montreal, Vancouver, Ottawa-Gatineau, Calgary,
+Edmonton, Quebec City, Winnipeg, Hamilton, Kitchener-Cambridge-Waterloo,
+London, and Halifax.
+
 We used four main data sources to construct the \{canaccesR\} data
 package: General Transit Feed Specification (GTFS), OpenStreetMap (OSM),
 DMTI's Enhanced Points of Interest, and Statistics Canada Census data.
 
-\subsection{General Transit Feed
-Specification}\label{general-transit-feed-specification}
+The GTFS files from the transit agencies from all the related areas
+provided the information on public transit schedule and their changes
+from 2019 to 2023.
 
-\subsection{OpenStreetMaps}\label{openstreetmaps}
+The OpenStreetMap data provided information on the transit network and
+was necessary for the routing used to estimate the travel time matrices.
 
-Files used for routing.
+The 2016 and 2021 Statistics' Canada Census data provided the
+information on the spatial distribution of the population and the number
+of workplace locations, which represent the quantity of employment
+across the CMA's
+\citep[governmentofcanada2021CensusPopulation2021]{governmentofcanada2016CensusPopulation2016}.
+All of the resulting travel time matrices were aggregated at the
+Dissemination Area (DA) level, which comprise the fundamental unit of
+analysis in data package.
 
-\subsection{Census Data}\label{census-data}
-
-Employment etc.
-
-\subsection{DMTI's Enhanced Points of
-Interest}\label{dmtis-enhanced-points-of-interest}
+The DMTI's Enhanced Points of Interest
 
 \section{Data processing}\label{data-processing}
 
@@ -131,9 +162,18 @@ Routing, cleaning, etc.
 The main contents of the \{canaccessR\} package are the travel time
 matrices estimates for all the 12 largest Canadian cities.
 
+Other sets of data are also available at the \{canaccessR\} package
+besides the travel time matrices. These are the boundaries,
+socio-economic and demographic data (e.g., population, number of
+dwellings, number of individuals below the Low Income Measure, etc.) of
+the selected CMA's, disaggregated by DA. In addition, the package also
+contains aggregated population statistics (for the selected CMA's) and
+transit revenue and ridership data aggregated by regional and national
+scale.
+
 \subsection{Descriptive statistics}\label{descriptive-statistics}
 
-Below, we present some of the basic statistics of the
+Below, we present some of the basic statistics of
 
 \section{How to use \{canaccessR\}}\label{how-to-use-canaccessr}
 
@@ -172,11 +212,19 @@ process}).
 
 \section{ORCID}\label{orcid}
 
-Author 1
-
-Author 2
-
-Author 3
+\begin{itemize}
+\tightlist
+\item
+  name: João Pedro Figueira Amorim Parga orcid: 0000-0002-4105-5927
+\item
+  name: Anastasia Soukhov orcid: 0000-0003-4371-4831
+\item
+  name: Robert Nutifafa Arku orcid: 0000-0002-2018-886X
+\item
+  name: Christopher Higgins orcid: 0000-0002-3551-7750
+\item
+  name: Antonio Páez orcid: 0000-0001-6912-9919
+\end{itemize}
 
 \section{Data availability statement}\label{data-availability-statement}
 
