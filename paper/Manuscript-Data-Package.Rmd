@@ -123,29 +123,23 @@ Finally, we conclude by explaining how we expect {canaccesR} to contribute to th
 
 # Data Sources
 
-The locations included in the data package comprise the 12 largest (population-wise) Census metropolitan areas (CMA's) based on the 2021 Canadian Census [@governmentofcanada2021CensusPopulation2021] [^1], which are Toronto, Montreal, Vancouver, Ottawa-Gatineau, Calgary, Edmonton, Quebec City, Winnipeg, Hamilton, Kitchener-Cambridge-Waterloo, London, and Halifax.
+The locations included in the data package comprise the 12 largest (population-wise) Census metropolitan areas (CMA's) based on the 2021 Canadian Census [@governmentofcanada2021CensusPopulation2021] [^1]. 
+These locations are Toronto, Montreal, Vancouver, Ottawa-Gatineau, Calgary, Edmonton, Quebec City, Winnipeg, Hamilton, Kitchener-Cambridge-Waterloo, London, and Halifax.
 
 [^1]: We included Oshawa, Ontario, as part of the Greater Toronto Area (GTA) because of the former's proximity to the latter. We also included Abbotsford-Mission, British Columbia, as part of the Vancouver metropolitan area because of the former's proximity to a transit station on the region’s West Coast Express commuter rail line.
-
-
 We used four main data sources to construct the {canaccesR} data package: General Transit Feed Specification (GTFS), OpenStreetMap (OSM), DMTI’s Enhanced Points of Interest, and Statistics Canada Census data.
 
 
-
 <!-- ## General Transit Feed Specification -->
-The GTFS files from the transit agencies from all the related areas provided the information on public transit schedule and their changes from 2019 to 2023.
-
-
+We used the GTFS files from all transit agencies within the selected CMA's to obtain the information on their public transit schedule from 2019 to 2023.
 <!-- ## OpenStreetMaps -->
 The OpenStreetMap data provided information on the transit network and was necessary for the routing used to estimate the travel time matrices.
-
 <!-- ## Census Data -->
-The 2016 and 2021 Statistics' Canada Census data provided the information on the spatial distribution of the population and the number of workplace locations, which represent the quantity of employment across the CMA's [@governmentofcanada2016CensusPopulation2016, governmentofcanada2021CensusPopulation2021].
-All of the resulting travel time matrices were aggregated at the Dissemination Area (DA) level, which comprise the fundamental unit of analysis in data package.
-
-
+We used the 2016 and 2021 Canadian Census' information on the spatial distribution of the population and the number of workplace locations (employment) across the CMA's [@governmentofcanada2016CensusPopulation2016, governmentofcanada2021CensusPopulation2021].
+We aggregayed all the resulting travel time matrices at the Dissemination Area (DA) level, which comprise the fundamental unit of analysis in data package.
 <!-- ## DMTI’s Enhanced Points of Interest -->
-The DMTI’s Enhanced Points of Interest
+Finally, we use the DMTI’s Enhanced Points of Interest dataset to obtain the location of the groceries stores within every urban area selected [@dmtispatialincEnhancedPointsInterest2015]. 
+We filtered the locations within the DMTI dataset using the grocery stores code from the North American Industry Classification System (NAICS) and the Standard Industrial Classification (SIC).
 
 # Data processing
 
@@ -162,7 +156,9 @@ In addition, the package also contains aggregated population statistics (for the
 
 ## Descriptive statistics
 
-Below, we present some of the basic statistics of 
+Below, we present some of the basic statistics from the travel time matrices contained in the {canaccessR} package. 
+
+
 
 <!--
 # Python integration
@@ -182,7 +178,7 @@ In this paper, we describe the {canaccesR} data package, created using the {r5r}
 The package's main contents refers to the ready-to-use travel time matrices for public transit to reach employment and groceries stores in Canada's 12 largest urban areas.
 We expect the contents of the package to be used in transportation accessibility evaluations within and across those regions.
 Moreover, these datasets can be used in further equity assessments that evaluate the distribution of accessibility across space and between social groups.
-In other words, we hope that by making these datasets publicly available, future analysis can contribute to making Canada's transportation system more just and fair, considering accessibility's as the main social good of transportation [MARTENS JUSTICE], and the inherent connection between public transit and the "right to the city" [COGGIN].
+In other words, we hope that by making these datasets publicly available, future analysis can contribute to making Canada's transportation system more just and fair, considering accessibility's as the main social good of transportation [@martensTransportJusticeDesigning2016], and the inherent connection between public transit and the "right to the city" [@cogginRightTransportMoving2015].
 
 
 <!-- In conclusion, we argue that the {canaccesR} package adds  -->
