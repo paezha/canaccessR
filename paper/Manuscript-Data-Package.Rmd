@@ -47,6 +47,8 @@ bibliographystyle: sageh
 output:
   rticles::sage_article:
     keep_tex: yes
+    fig_caption: yes
+header-includes: \usepackage{float}
 editor_options: 
   markdown: 
     wrap: 72
@@ -193,11 +195,10 @@ The aggregated statistics refer to population aggregates (for the selected CMA's
 We now present some descriptive statistics from the travel time matrices contained in the {canaccessR} package. 
 The Table @tbl-table_1 below summarizes the travel time estimates.
 The travel time datasets contain, in total, 97,784,850 origin-destination pairs (observations) from population to employment locations for all the DA's in the sample and 18,519,897 pairs from population to groceries stores.
-Considering all areas combined, the travel times estimated to jobs have an average of 78, standard deviation of 25, 1st quantile of 59, median of 80, and 3rd quantile of 99.
-For travel times to groceries stores, these same statistics are the 76, 26, 56, 76, and 97, respectively.
+Considering all areas combined, the mean travel time to jobs was 80 and 76 for groceries stores.
 
 
-```{r}
+```{r, fig.pos="H"}
 #| label: tbl-table_1
 #| echo: false
 #| message: false
@@ -225,6 +226,19 @@ Possibly provide a Jupyter Notebook containing a Python script to demonstrate ho
 # How to use {canaccessR}
 
 This section exemplifies how the package can be used through visual representation.
+In Figure @fig-travel_time_emp_grc_plot, we present the spatial representation of the travel time matrices for the metropolitan region of Montréal.
+In it, we see the median travel time from each DA to employment (left) and to groceries stores (right).
+The plot shows that moving away from the city core increases the necessary travel time by public transit to reach employment locations and groceries stores. 
+
+
+
+```{r, fig.pos="H"}
+#| label: fig-travel_time_emp_grc_plot
+#| fig-cap: "Estimated median travel time (minutes) per Dissemination Area to jobs (left) and groceries stores (right). Public transit travel times are calculated using {r5r} (Pereira et al., 2021). DA and planning boundaries of the Montréal metropolitan area (Statistics Canada, 2016)."
+#| out-width: 100%
+#| echo: false
+knitr::include_graphics("../figures/patch_tt_emp_grc.jpg")
+```
 
 
 A more thorough example of the package's use can be found on the School of Cities' recent report on Canada's Urban Infrastructure Deficit.

@@ -8,6 +8,10 @@ library(sf)
 library(data.table)
 library(summarytools)
 library(skimr)
+library(stringi)
+library(hrbrthemes)
+library(tmap)
+library(patchwork)
 
 
 # read data ---------------------------------------------------------------
@@ -65,7 +69,7 @@ f_ttm <- function(){
   # ttm_list <- mget(ls(pattern = "travel"))
   
   rm(list = ls(pattern = "travel"))
-  rm(d)
+  # rm(d)
   gc()
 }
 
@@ -176,6 +180,79 @@ f_skim <- function(){
 
 
 
+# area and mean tt --------------------------------------------------------
+
+vec_cma <- d$results[, "Item"] %>% str_subset("census_data_cma")
+
+# call promised data
+# https://stackoverflow.com/a/27710355
+data(list = vec_cma, package = "canaccessR")
+
+# union vancouver
+census_data_cma_van <- census_data_cma_van %>% 
+  group_by(study_region_name) %>% 
+  summarise() %>% 
+  sf::st_union()
+
+# separate ggh
+data("census_data_da_ggh")
+
+census_data_cma_tor <- census_data_da_ggh %>% 
+  select(CMA_UID, geometry) %>% 
+  filter(CMA_UID %in% c("35535","35532")) %>% 
+  sf::st_union()
+
+census_data_cma_ham <- census_data_da_ggh %>% 
+  select(CMA_UID, geometry) %>% 
+  filter(CMA_UID %in% c("35537")) %>% 
+  sf::st_union()
+
+census_data_cma_wat <- census_data_da_ggh %>% 
+  select(CMA_UID, geometry) %>% 
+  filter(CMA_UID %in% c("35541")) %>% 
+  sf::st_union()
+
+
+rm(census_data_da_ggh)
+
+l_cma <- list(mget(ls(pattern = "census_data_cma"))) %>% 
+  unlist(recursive=FALSE)
+l_cma <- within(l_cma, rm(census_data_cma_ggh))
+rm(list = ls(pattern = "census_data_cma"))
+
+# compute areas
+vec_area <- map_vec(
+  .x = l_cma
+  , ~ sf::st_area(.x)
+)
+
+df_area <- data.table(
+  name = str_extract(string = names(vec_area), pattern = "(?<=census_data_cma_).*")
+  , vec_area
+)
+
+
+vec_lower <- sk_full %>% 
+  # filter(Destination=="Employment" & `Study Region Name` != "All regions") %>% 
+  pull(`Study Region Name`) %>% 
+  str_extract("^.{3}") %>% 
+  str_to_lower() %>% 
+  stringi::stri_trans_general("Latin-ASCII")
+
+vec_lower <- replace(vec_lower, vec_lower=="mon", "mtl")
+vec_lower <- replace(vec_lower, vec_lower=="lon", "ldn")
+
+sk_full <- sk_full %>% 
+  mutate(name = vec_lower) %>% 
+  relocate(name, .after = `Study Region Name`)
+
+
+
+sk_full <- sk_full %>% 
+  dplyr::left_join(df_area, by = "name")
+
+rm(df_area)
+
 
 # figure ------------------------------------------------------------------
 
@@ -213,6 +290,8 @@ ttm_emp <- df_mtl_emp[
       x = travel_time_p50
       , w = Population / sum(Population)
     )
+    # median
+    , median_emp = median(travel_time_p50, na.rm = T)
   )
   , by = from_id
 ]
@@ -234,6 +313,8 @@ ttm_grc <- df_mtl_grc[
       x = travel_time_p50
       , w = Population / sum(Population)
     )
+    # median
+    , median_grc = median(travel_time_p50, na.rm = T)
   )
   , by = from_id
 ]
@@ -243,13 +324,164 @@ ttm_mtl <- dplyr::left_join(
 )
 
 # join census data for plotting
-census_data_da_mtl <- census_data_da_mtl %>% dplyr::left_join(
+census_data_da_mtl <- census_data_da_mtl %>% 
+  dplyr::left_join(
   ttm_mtl
   , by = c("GeoUID" = "from_id")
 ) 
 
 
+
+
+
 # * plot data -------------------------------------------------------------
 
-  
+data(region_background_mtl)
+
+p_emp_background <- ggplot() + 
+  geom_sf(
+    data = region_background_mtl
+  ) +
+  geom_sf(
+    data = census_data_da_mtl
+    , aes(fill = median_emp), lwd = 0
+    ) +
+  scale_fill_viridis_c(direction = -1) +
+  # scale_fill_fermenter(palette = "Reds",
+  #                      direction = 1) +
+  hrbrthemes::theme_ipsum() +
+  theme(
+    panel.grid.major = element_blank()
+    , axis.text.x = element_blank()
+    , axis.text.y = element_blank()
+    , legend.position = "bottom"
+  ) +
+  guides(
+    fill = guide_legend(
+      title = "Median Travel Time (min) Jobs"
+      # , reverse = T
+      , title.position="top"
+      )
+    )
+
+p_emp_no_background <- ggplot() + 
+  # geom_sf(
+  #   data = region_background_mtl
+  # ) +
+  geom_sf(
+    data = census_data_da_mtl
+    , aes(fill = median_emp), lwd = 0
+  ) +
+  scale_fill_viridis_c(
+    direction = -1
+    ) +
+  # scale_fill_fermenter(palette = "Reds",
+  #                      direction = 1) +
+  hrbrthemes::theme_ipsum() +
+  theme(
+    panel.grid.major = element_blank()
+    , axis.text.x = element_blank()
+    , axis.text.y = element_blank()
+    , legend.position = "bottom"
+  ) +
+  guides(
+    fill = guide_legend(
+      title = "Median Travel Time (min) Jobs"
+      # , reverse = T
+      , title.position="top"
+      )
+    )
+
+p_grc_no_background <- ggplot() + 
+  # geom_sf(
+  #   data = region_background_mtl
+  # ) +
+  geom_sf(
+    data = census_data_da_mtl
+    , aes(fill = median_grc), lwd = 0
+  ) +
+  scale_fill_viridis_c(direction = -1) +
+  # scale_fill_fermenter(palette = "Reds",
+  #                      direction = 1) +
+  hrbrthemes::theme_ipsum() +
+  theme(
+    panel.grid.major = element_blank()
+    , axis.text.x = element_blank()
+    , axis.text.y = element_blank()
+    , legend.position = "bottom"
+  ) +
+  guides(
+    fill = guide_legend(
+      title = "Median Travel Time (min) Groceries"
+      # , reverse = T
+      , title.position="top"
+      )
+    )
+
+p_pop_no_background <- ggplot() + 
+  # geom_sf(
+  #   data = region_background_mtl
+  # ) +
+  geom_sf(
+    data = census_data_da_mtl
+    , aes(fill = Population), lwd = 0
+  ) +
+  scale_fill_viridis_c(direction = -1) +
+  # scale_fill_fermenter(palette = "Reds",
+  #                      direction = 1) +
+  hrbrthemes::theme_ipsum() +
+  theme(
+    panel.grid.major = element_blank()
+    , axis.text.x = element_blank()
+    , axis.text.y = element_blank()
+    , legend.position = "bottom"
+  ) +
+  guides(
+    fill = guide_legend(
+      title = "Population"
+      # , reverse = T
+      , title.position="top"
+      )
+    )
+
+p_total_emp_no_background <- ggplot() + 
+  # geom_sf(
+  #   data = region_background_mtl
+  # ) +
+  geom_sf(
+    data = census_data_da_mtl
+    , aes(fill = Total_Emp), lwd = 0
+  ) +
+  scale_fill_viridis_c(direction = -1) +
+  # scale_fill_fermenter(palette = "Reds",
+  #                      direction = 1) +
+  hrbrthemes::theme_ipsum() +
+  theme(
+    panel.grid.major = element_blank()
+    , axis.text.x = element_blank()
+    , axis.text.y = element_blank()
+    , legend.position = "bottom"
+  ) +
+  guides(
+    fill = guide_legend(
+      title = "Total Employment"
+      # , reverse = T
+      , title.position="top"
+      )
+    )
+
+
+# tm_shape(census_data_da_mtl) +
+#   tm_fill("Total_Emp") +
+#   tm_scale_intervals(n=4, style = "pretty")
+
+p_patch_with_pop_emp <- (p_emp_no_background + p_grc_no_background) / 
+  (p_total_emp_no_background + p_pop_no_background) #&
+  # theme(legend.position = "bottom")
+
+p_patch <- p_emp_no_background + p_grc_no_background
+
+ggsave(p_patch, file = "./figures/patch_tt_emp_grc.jpg", height = 4, width = 8)
+
+ggsave(p_patch_with_pop_emp, file = "./figures/patch_full.jpg", height = 4, width = 8)
 
