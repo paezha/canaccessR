@@ -82,11 +82,18 @@ rm(list=ls())
 
 ```{r load-packages, include=FALSE, cache=FALSE}
 # Load packages
-
+library(tidyverse)
+library(data.table)
+# library(summarytools)
+library(gt)
+library(gtsummary)
+# library(sf)
+# library(tmap)
+# library(tmaptools)
 ```
 
 ```{r load-data, include = FALSE}
-
+load("sk_full.Rdata")
 ```
 
 # Introduction
@@ -183,12 +190,29 @@ These refer to total population by age groups, number of dwellings, number of in
 The aggregated statistics refer to population aggregates (for the selected CMA's) and transit revenue and ridership data aggregated by regional and national scale.
 
 
-Below, we present some descriptive statistics from the travel time matrices contained in the {canaccessR} package. 
+We now present some descriptive statistics from the travel time matrices contained in the {canaccessR} package. 
+The Table @tbl-table_1 below summarizes the travel time estimates.
+The travel time datasets contain, in total, 97,784,850 origin-destination pairs (observations) from population to employment locations for all the DA's in the sample and 18,519,897 pairs from population to groceries stores.
+Considering all areas combined, the travel times estimated to jobs have an average of 78, standard deviation of 25, 1st quantile of 59, median of 80, and 3rd quantile of 99.
+For travel times to groceries stores, these same statistics are the 76, 26, 56, 76, and 97, respectively.
 
 
 ```{r}
+#| label: tbl-table_1
+#| echo: false
+#| message: false
+
+
+sk_full %>% 
+  gt() %>% 
+  fmt_number(use_seps = TRUE, decimals = FALSE) |>  
+  tab_options( 
+    table.font.size = 10,
+    table.width = pct(100) 
+    )  
 
 ```
+
 
 
 <!--
@@ -200,8 +224,13 @@ Possibly provide a Jupyter Notebook containing a Python script to demonstrate ho
 
 # How to use {canaccessR}
 
-This section presents some potential applications of the data package.
+This section exemplifies how the package can be used through visual representation.
 
+
+A more thorough example of the package's use can be found on the School of Cities' recent report on Canada's Urban Infrastructure Deficit.
+In its 11th Chapter, we use the travel time matrices to estimate accessibility metrics to jobs and groceries stores before and after the pandemic [@pargaDemocraticAccessOur2024].
+We then compare how changes affected groups differently according to their spatial distribution and income level, thus making explicit the connection of the package's information and matters of equity in transportation.
+The report is freely available for download at the State of Cities Summit [website](https://stateofcitiessummit.ca/report).
 
 # Concluding remarks
 

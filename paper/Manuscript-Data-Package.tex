@@ -11,6 +11,13 @@
 
 
 
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{multirow}
 
 
 \begin{document}
@@ -225,8 +232,53 @@ below the Low Income Measure, etc. The aggregated statistics refer to
 population aggregates (for the selected CMA's) and transit revenue and
 ridership data aggregated by regional and national scale.
 
-Below, we present some descriptive statistics from the travel time
-matrices contained in the \{canaccessR\} package.
+We now present some descriptive statistics from the travel time matrices
+contained in the \{canaccessR\} package. The Table \citet{tbl-table_1}
+below summarizes the travel time estimates. The travel time datasets
+contain, in total, 97,784,850 origin-destination pairs (observations)
+from population to employment locations for all the DA's in the sample
+and 18,519,897 pairs from population to groceries stores. Considering
+all areas combined, the travel times estimated to jobs have an average
+of 78, standard deviation of 25, 1st quantile of 59, median of 80, and
+3rd quantile of 99. For travel times to groceries stores, these same
+statistics are the 76, 26, 56, 76, and 97, respectively.
+
+\begingroup
+\setlength\LTleft{0\linewidth}
+\setlength\LTright{0\linewidth}\fontsize{7.5pt}{9.0pt}\selectfont
+\begin{longtable}{@{\extracolsep{\fill}}clrrrrrr}
+\toprule
+Study Region Name & Destination & Observations & Mean & Sd & P25 & P50 & P75 \\ 
+\midrule\addlinespace[2.5pt]
+All regions & Employment & 97,784,850 & 78 & 25 & 59 & 80 & 99 \\ 
+Toronto & Employment & 41,038,062 & 82 & 25 & 64 & 85 & 103 \\ 
+Montréal & Employment & 30,091,411 & 76 & 25 & 57 & 77 & 97 \\ 
+Vancouver & Employment & 12,254,478 & 76 & 25 & 58 & 77 & 96 \\ 
+Calgary & Employment & 3,022,244 & 75 & 23 & 59 & 75 & 91 \\ 
+Ottawa & Employment & 2,936,912 & 74 & 24 & 56 & 74 & 93 \\ 
+Edmonton & Employment & 2,057,486 & 70 & 23 & 53 & 70 & 87 \\ 
+Québec City & Employment & 1,473,702 & 72 & 25 & 54 & 72 & 93 \\ 
+Winnipeg & Employment & 1,574,205 & 62 & 22 & 46 & 61 & 76 \\ 
+Hamilton & Employment & 2,089,172 & 82 & 28 & 61 & 87 & 106 \\ 
+Waterloo & Employment & 552,826 & 71 & 27 & 49 & 69 & 93 \\ 
+London & Employment & 415,174 & 61 & 21 & 46 & 60 & 74 \\ 
+Halifax & Employment & 279,178 & 66 & 25 & 47 & 65 & 84 \\ 
+All regions & Groceries Stores & 18,519,897 & 76 & 26 & 56 & 76 & 97 \\ 
+Toronto & Groceries Stores & 8,512,874 & 80 & 25 & 61 & 82 & 101 \\ 
+Montréal & Groceries Stores & 2,993,965 & 73 & 26 & 53 & 74 & 94 \\ 
+Vancouver & Groceries Stores & 4,540,106 & 73 & 25 & 53 & 74 & 93 \\ 
+Calgary & Groceries Stores & 502,757 & 70 & 22 & 54 & 70 & 86 \\ 
+Ottawa & Groceries Stores & 619,791 & 72 & 24 & 55 & 72 & 91 \\ 
+Edmonton & Groceries Stores & 324,030 & 68 & 23 & 51 & 67 & 84 \\ 
+Québec City & Groceries Stores & 234,600 & 70 & 26 & 51 & 70 & 89 \\ 
+Winnipeg & Groceries Stores & 362,566 & 58 & 21 & 43 & 57 & 72 \\ 
+Hamilton & Groceries Stores & 281,118 & 84 & 29 & 60 & 91 & 110 \\ 
+Waterloo & Groceries Stores & 44,726 & 66 & 28 & 44 & 62 & 90 \\ 
+London & Groceries Stores & 52,617 & 55 & 19 & 42 & 55 & 67 \\ 
+Halifax & Groceries Stores & 50,747 & 63 & 26 & 42 & 63 & 83 \\ 
+\bottomrule
+\end{longtable}
+\endgroup
 
 \section{How to use \{canaccessR\}}\label{how-to-use-canaccessr}
 
