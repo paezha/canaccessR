@@ -127,32 +127,24 @@ We used OSM data from 2019 and 2023, which provided information on the areas' tr
 <!-- ## Census Data -->
 We collected data from the 2016 Canadian Census using the {cancensus} package [@vonbergmannCancensusPackageAccess2022] and used its information on the spatial distribution of the population and the number of workplace locations (employment) across the CMA's [@governmentofcanada2016CensusPopulation2016].
 <!-- ## DMTI’s Enhanced Points of Interest -->
-Finally, we gathered and cleaned the 2023 DMTI’s Enhanced Points of Interest dataset to obtain the location of the groceries stores within every urban area selected [@dmtispatialincEnhancedPointsInterest2015]. 
-We filtered the locations within the DMTI dataset using the grocery stores code from the North American Industry Classification System (NAICS) and the Standard Industrial Classification (SIC).
-{**THE CODE FOR THIS ESTIMATIONS AND THE TRAVEL TIME MATRICES IS ON THE transit_death_spiral github repo. 1) SHOULD WE CITE IT? 2) IS THAT A PROBLEM?**}
+Finally, we gathered and cleaned the 2023 DMTI’s Enhanced Points of Interest dataset to obtain the location of the groceries stores within every urban area selected [@dmtispatialincEnhancedPointsInterest2015]. We filtered the locations within the DMTI dataset using the grocery stores code from the North American Industry Classification System (NAICS) and the Standard Industrial Classification (SIC).
+<!-- {**THE CODE FOR THIS ESTIMATIONS AND THE TRAVEL TIME MATRICES IS ON THE transit_death_spiral github repo. 1) SHOULD WE CITE IT? 2) IS THAT A PROBLEM?**} -->
 
 ## Methods: travel time matrices processing
 
-Using the {r5r} R package, we estimated public transit travel times for two destination types, grocery stores and jobs.  For each amenity type, we chose a likely travel time and day of the week. We set a 15 minutes time window and the maximum trip duration to 120 minutes. The estimated times are the median of the 15 minute time window. For groceries stores, we set the departure date to a weekend afternoon and the departure time to between 12:00 PM to 12:15 PM on April 20, 2019 and April 22, 2023. For employment, we ran the analysis on a typical weekday morning rush-hour commute, more specifically 8:00 to 8:15 AM departure on Tuesday, April 16, 2019 and Tuesday, April 18, 2023 [^3]. In both cases, we assumed that walking was the mode of travel from origin to transit stop and from transit stop to destination. We aggregated all the resulting travel time matrices at the Dissemination Area (DA) level, which comprise the fundamental unit of analysis in data package.
+Using the {r5r} R package, we estimated public transit travel times for two destination types, grocery stores and jobs.  For each amenity type, we chose a likely travel time and day of the week. We set a 15 minutes time window and the maximum trip duration to 120 minutes. The estimated times are the median of the 15 minute time window. For groceries stores, we set the departure date to a weekend afternoon and the departure time to between 12:00 PM to 12:15 PM on April 20, 2019 and April 22, 2023. For employment, we ran the analysis on a typical weekday morning rush-hour commute, more specifically 8:00 to 8:15 AM departure on Tuesday, April 16, 2019 and Tuesday, April 18, 2023 [^3]. In both cases, we assumed that walking was the mode of travel from origin to transit stop and from transit stop to destination. We aggregated all the resulting travel time matrices at the DA level, which comprise the fundamental unit of analysis in data package.
 
 [^3]: The one exception is Quebec City, where the routing for 2019 occurs on a Saturday and Tuesday in June (instead of April) due to the GTFS data unavailability.
-
 
 # {canaccessR}'s contents
 
 <!-- ## Travel time matrices -->
-```{r}
-data(package = "canaccessR")$results[, "Item"]
-grep(paste("^", "census_data_da_", sep=""), data(package = "canaccessR")$results[, "Item"])
- data("census_data_cma_cal")
-```
-
 Specifically, the package contains the following contents: `r grep(paste("^", "travel_matrix_grc_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` data.frame objects containing the calculated public travel times from DA centroids to grocery stores and another `r grep(paste("^", "travel_matrix_emp_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` for DA centroids to DA centroids. Notably, the {travel_matrix_grc_ggh} data.frame, is named after the acronym for the Greater Golden Horseshoe area, which includes the CMA regions of Toronto, Hamilton, and Kitchener-Cambridge-Waterloo. Hence, the `r grep(paste("^", "travel_matrix_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` travel time data.frames represent public transit travel times for all 12 CMAs across two sets of destinations. Next, `r grep(paste("^", "census_data_da_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` sf objects represent census data for each DA, including dwelling counts, population by age bracket, single-parent-headed households, low-income prevalence, official language knowledge, housing- quality, ownership and affordability variables, visible minority, newcomer- and immigration- related variables, educational attainment, and commuting mode shares. Furthermore, `r grep(paste("^", "census_data_cma_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` and `r grep(paste("^", "region_background_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` sf objects represent the CMA areas' boundaries and backgrounds for plotting the data spatially, respectively. Finally, `r grep("statistics", data(package = "canaccessR")$results[, "Item"]) |> length()` data.frames contain aggregated population and transit statistics at the CMA level.
 
 <!--AS: Joao, I rephrased the below into one paragraph, what do you think?  -->
 
 <!-- The main contents of the {canaccessR} package are the travel time matrices. -->
-<!-- <!-- These matrices are data frames with origin-destination pairs, travel time by public transit, and population and employment by Census Dissemination Area.  --> -->
+<!-- <!-- These matrices are data frames with origin-destination pairs, travel time by public transit, and population and employment by Census Dissemination Area.  --> 
 <!-- These matrices (datasets) comprise the estimated travel time by transit from and to each origin and destination Dissemination Area pairs. The datasets also feature the total population in the origin DA and the total employment in the destination DA. Besides these information, the matrices contain the unique origin and destination DA codes, region and name identifiers, the year in which the travel times refers to, and the date and time of departure for a trip that originates at the Dissemination Area of origin. There are two matrices for each metropolitan area, one containing the travel times to jobs and the other to groceries stores [^4]. These information can be turned into spatial data using the socio-economic and demographic datasets. -->
 
 <!-- [^4]: The information from Toronto, Hamilton, and Waterloo are aggregated at the Greater Golden Horseshoe travel time matrices, making it 20 datasets in total.  -->

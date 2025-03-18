@@ -182,10 +182,7 @@ obtain the location of the groceries stores within every urban area
 selected \citep{dmtispatialincEnhancedPointsInterest2015}. We filtered
 the locations within the DMTI dataset using the grocery stores code from
 the North American Industry Classification System (NAICS) and the
-Standard Industrial Classification (SIC). \{\textbf{THE CODE FOR THIS
-ESTIMATIONS AND THE TRAVEL TIME MATRICES IS ON THE
-transit\_death\_spiral github repo. 1) SHOULD WE CITE IT? 2) IS THAT A
-PROBLEM?}\}
+Standard Industrial Classification (SIC).
 
 \subsection{Methods: travel time matrices
 processing}\label{methods-travel-time-matrices-processing}
@@ -205,35 +202,10 @@ on Tuesday, April 16, 2019 and Tuesday, April 18, 2023 \footnote{The one
   unavailability.}. In both cases, we assumed that walking was the mode
 of travel from origin to transit stop and from transit stop to
 destination. We aggregated all the resulting travel time matrices at the
-Dissemination Area (DA) level, which comprise the fundamental unit of
-analysis in data package.
+DA level, which comprise the fundamental unit of analysis in data
+package.
 
 \section{\{canaccessR\}'s contents}\label{canaccessrs-contents}
-
-\begin{verbatim}
- [1] "census_data_cma_cal"   "census_data_cma_edm"   "census_data_cma_ggh"  
- [4] "census_data_cma_hal"   "census_data_cma_ldn"   "census_data_cma_mtl"  
- [7] "census_data_cma_ott"   "census_data_cma_que"   "census_data_cma_van"  
-[10] "census_data_cma_win"   "census_data_da_cal"    "census_data_da_edm"   
-[13] "census_data_da_ggh"    "census_data_da_hal"    "census_data_da_ldn"   
-[16] "census_data_da_mtl"    "census_data_da_ott"    "census_data_da_que"   
-[19] "census_data_da_van"    "census_data_da_win"    "population_statistics"
-[22] "region_background_cal" "region_background_edm" "region_background_ggh"
-[25] "region_background_hal" "region_background_ldn" "region_background_mtl"
-[28] "region_background_ott" "region_background_que" "region_background_van"
-[31] "region_background_win" "transit_statistics"    "travel_matrix_emp_cal"
-[34] "travel_matrix_emp_edm" "travel_matrix_emp_ggh" "travel_matrix_emp_hal"
-[37] "travel_matrix_emp_ldn" "travel_matrix_emp_mtl" "travel_matrix_emp_ott"
-[40] "travel_matrix_emp_que" "travel_matrix_emp_van" "travel_matrix_emp_win"
-[43] "travel_matrix_grc_cal" "travel_matrix_grc_edm" "travel_matrix_grc_ggh"
-[46] "travel_matrix_grc_hal" "travel_matrix_grc_ldn" "travel_matrix_grc_mtl"
-[49] "travel_matrix_grc_ott" "travel_matrix_grc_que" "travel_matrix_grc_van"
-[52] "travel_matrix_grc_win"
-\end{verbatim}
-
-\begin{verbatim}
- [1] 11 12 13 14 15 16 17 18 19 20
-\end{verbatim}
 
 Specifically, the package contains the following contents: 10 data.frame
 objects containing the calculated public travel times from DA centroids
@@ -252,8 +224,6 @@ Furthermore, 10 and 10 sf objects represent the CMA areas' boundaries
 and backgrounds for plotting the data spatially, respectively. Finally,
 2 data.frames contain aggregated population and transit statistics at
 the CMA level.
-
---\textgreater{}
 
 We now present some descriptive statistics from the travel time matrices
 contained in the \{canaccessR\} package. Table \citet{tbl-table_1}
