@@ -45,6 +45,7 @@ classoption:
 bibliography: bibfile.bib
 bibliographystyle: sageh
 output:
+  word_document: default
   rticles::sage_article:
     keep_tex: yes
     fig_caption: yes
@@ -139,7 +140,7 @@ Using the {r5r} R package, we estimated public transit travel times for two dest
 # {canaccessR}'s contents
 
 <!-- ## Travel time matrices -->
-Specifically, the package contains the following contents: `r grep(paste("^", "travel_matrix_grc_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` data.frame objects containing the calculated public travel times from DA centroids to grocery stores and another `r grep(paste("^", "travel_matrix_emp_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` for DA centroids to DA centroids. Notably, the {travel_matrix_grc_ggh} data.frame, is named after the acronym for the Greater Golden Horseshoe area, which includes the CMA regions of Toronto, Hamilton, and Kitchener-Cambridge-Waterloo. Hence, the `r grep(paste("^", "travel_matrix_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` travel time data.frames represent public transit travel times for all 12 CMAs across two sets of destinations. Next, `r grep(paste("^", "census_data_da_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` sf objects represent census data for each DA, including dwelling counts, population by age bracket, single-parent-headed households, low-income prevalence, official language knowledge, housing- quality, ownership and affordability variables, visible minority, newcomer- and immigration- related variables, educational attainment, and commuting mode shares. Furthermore, `r grep(paste("^", "census_data_cma_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` and `r grep(paste("^", "region_background_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` sf objects represent the CMA areas' boundaries and backgrounds for plotting the data spatially, respectively. Finally, `r grep("statistics", data(package = "canaccessR")$results[, "Item"]) |> length()` data.frames contain aggregated population and transit statistics at the CMA level.
+Specifically, the package contains the following contents: `r grep(paste("^", "travel_matrix_grc_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` *data.frame* objects containing the calculated public travel times from DA centroids to grocery stores and another `r grep(paste("^", "travel_matrix_emp_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` for DA centroids to DA centroids. Notably, the {travel_matrix_grc_ggh} *data.frame* is named after the acronym for the Greater Golden Horseshoe area, which includes the CMA regions of Toronto, Hamilton, and Kitchener-Cambridge-Waterloo. The `r grep(paste("^", "travel_matrix_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` travel time *data.frame*s represent public transit travel times for all 12 CMAs across two sets of destinations. Next, `r grep(paste("^", "census_data_da_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` *sf* objects represent census data for each DA, including dwelling counts, population by age bracket, single-parent-headed households, low-income prevalence, official language knowledge, housing- quality, ownership and affordability variables, visible minority, newcomer- and immigration- related variables, educational attainment, and commuting mode shares. Furthermore, `r grep(paste("^", "census_data_cma_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` and `r grep(paste("^", "region_background_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` *sf* objects represent the CMA areas' boundaries and backgrounds for plotting the data spatially, respectively. Finally, `r grep("statistics", data(package = "canaccessR")$results[, "Item"]) |> length()` *data.frame*s contain aggregated population and transit statistics at the CMA level.
 
 <!--AS: Joao, I rephrased the below into one paragraph, what do you think?  -->
 
@@ -154,10 +155,11 @@ Specifically, the package contains the following contents: `r grep(paste("^", "t
 <!-- These refer to total population by age groups, number of dwellings, number of individuals below the Low Income Measure, etc. -->
 <!-- The aggregated statistics refer to population aggregates (for the selected CMA's) and transit revenue and ridership data aggregated by regional and national scale. -->
 
-We now present some descriptive statistics from the travel time matrices contained in the {canaccessR} package. Table @tbl-table_1 summarizes the travel time estimates. The travel time objects contain, in total, 97,784,850 origin-destination pairs (observations) from population to employment locations for all the DA's in the sample and 18,519,897 pairs from population to groceries stores. Considering all areas combined, the mean travel time to jobs was 80 and 76 for groceries stores.
+We now present some descriptive statistics from the travel time matrices contained in the {canaccessR} package. Table @tbl-table_1 summarizes the travel time estimates. The travel time objects contain, in total, 97,784,850 origin-destination pairs (observations) from population to employment locations for all the DA's in the sample and 18,519,897 pairs from population to groceries stores. Considering all areas combined, the mean travel time to jobs was 78 and 76 to groceries stores.
 
 ```{r, fig.pos="H"}
 #| label: tbl-table_1
+#| tbl-cap: "Descriptive statistics of the travel time matrices from the {canaccessR} package."
 #| echo: false
 #| message: false
 
