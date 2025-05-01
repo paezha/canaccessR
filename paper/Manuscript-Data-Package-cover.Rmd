@@ -1,0 +1,56 @@
+---
+title: "canaccessR: An open data product for transit accessibility analysis in Canada’s largest metropolitan areas."
+author:
+  - name: João Pedro Figueira Amorim Parga
+    email: joao.parga@mail.utoronto.ca
+    affil-id: 1
+    orcid: 0000-0002-4105-5927
+    footnote: 1
+  - name: Anastasia Soukhov
+    email: soukhoa@mcmaster.ca
+    affil-id: 2
+    orcid: 0000-0003-4371-4831
+  - name: Robert Nutifafa Arku
+    email: rn.arku@mail.utoronto.ca
+    affil-id: 1
+    orcid: 0000-0002-2018-886X
+  - name: Christopher Higgins
+    email: cd.higgins@utoronto.ca
+    affil-id: 3
+    orcid: 0000-0002-3551-7750
+  - name: Antonio Páez
+    email: paezha@mcmaster.ca
+    affil-id: 2
+    orcid: 0000-0001-6912-9919
+affiliations:
+  - id: 1
+    name: University of Toronto
+  - id: 2
+    name: McMaster University
+  - id: 3
+    name: University of Toronto Scarborough
+# address:
+#   - code: CODE
+#     address: "Some school"
+footnote:
+  - code: 1
+    text: "Corresponding Author"
+abstract: 
+  "In this paper, we describe the {canaccessR} package, an open data product (ODP) created in R that contains public transit travel time estimates to employment locations and grocery stores across Canada's 12 largest metropolitan areas. We calculate travel time matrices (TTM) from and to each Dissemination Area (DA) within these regions for the years 2019 and 2023. We add value to the urban analytics community by processing and integrating raw data, and disseminating user-ready data in the domain of transportation accessibility in Canada. To do so, we use the {r5r} R package, General Transit Feed Specification (GTFS), OpenStreetMap (OSM), DMTI’s Enhanced Points of Interest, and Statistics Canada Census data. This data package can be used by researchers, practitioners, and transit agencies to estimate accessibility levels to these two essential destinations within these urban areas. Moreover, travel time matrices are computed from DA centroid to DA centroid, which means that they can be adapted for use in applications with any type of destination that is aggregated at the DA level. Finally, as an ODP, the {canaccess} package allows for open exploration, use, and contribution by users through its GitHub repository." 
+    
+keywords: Public transit accessibility; open data products (ODPs); R data package; travel time matrices.
+classoption:
+  - Royal
+  - times
+bibliography: bibfile
+bibliographystyle: sageh
+output:
+  rticles::sage_article:
+    keep_tex: yes
+    fig_caption: yes
+header-includes: \usepackage{float}
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
