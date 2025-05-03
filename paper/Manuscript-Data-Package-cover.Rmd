@@ -1,24 +1,24 @@
 ---
 title: "canaccessR: An open data product for transit accessibility analysis in Canada’s largest metropolitan areas."
 author:
-  - name: João Pedro Figueira Amorim Parga
+  - name: João Figueroa Amorim PARGA
     email: joao.parga@mail.utoronto.ca
     affil-id: 1
     orcid: 0000-0002-4105-5927
     footnote: 1
-  - name: Anastasia Soukhov
+  - name: Anastasia SOUKHOV
     email: soukhoa@mcmaster.ca
     affil-id: 2
     orcid: 0000-0003-4371-4831
-  - name: Robert Nutifafa Arku
+  - name: Robert Nutifafa ARKU
     email: rn.arku@mail.utoronto.ca
     affil-id: 1
     orcid: 0000-0002-2018-886X
-  - name: Christopher Higgins
+  - name: Christopher HIGGINS
     email: cd.higgins@utoronto.ca
     affil-id: 3
     orcid: 0000-0002-3551-7750
-  - name: Antonio Páez
+  - name: Antonio PÁEZ
     email: paezha@mcmaster.ca
     affil-id: 2
     orcid: 0000-0001-6912-9919

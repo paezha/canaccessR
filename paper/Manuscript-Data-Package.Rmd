@@ -28,13 +28,13 @@ keywords: Public transit accessibility; open data products (ODPs); R data packag
 classoption:
   - Royal
   - times
-bibliography: bibfile
+bibliography: bibfile.bib
 bibliographystyle: sageh
 output:
-  #rticles::sage_article:
-  #  keep_tex: yes
-  #  fig_caption: yes
-  word_document
+  rticles::sage_article:
+   keep_tex: yes
+   fig_caption: yes
+#  word_document
 header-includes: \usepackage{float}
 editor_options: 
   markdown: 
@@ -74,8 +74,9 @@ rm(list=ls())
 library(canaccessR)
 library(data.table)
 library(glue)
-library(gt)
+#library(gt)
 library(gtsummary)
+library(kableExtra)
 # library(summarytools)
 # library(sf)
 library(tidyverse)
@@ -143,25 +144,22 @@ We used the {r5r} R package to estimate public transit travel times for two dest
 <!-- ## Travel time matrices -->
 Specifically, the package contains the following contents: `r grep(paste("^", "travel_matrix_grc_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` *data.frame* objects containing the calculated public travel times from DA centroids to grocery stores and another `r grep(paste("^", "travel_matrix_emp_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` for DA centroids to DA centroids. Notably, the {travel_matrix_grc_ggh} *data.frame* is named after the acronym for the Greater Golden Horseshoe area, which includes the CMA regions of Toronto, Hamilton, and Kitchener-Cambridge-Waterloo. The `r grep(paste("^", "travel_matrix_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` travel time *data.frame*s represent public transit travel times for all 12 CMAs across two sets of destinations. Next, `r grep(paste("^", "census_data_da_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` *sf* objects represent census data for each DA, including dwelling counts, population by age bracket, single-parent-headed households, low-income prevalence, official language knowledge, housing quality, ownership and affordability variables, visible minorities, newcomer- and immigration-related variables, educational attainment, and commuting mode shares. Furthermore, `r grep(paste("^", "census_data_cma_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` and `r grep(paste("^", "region_background_", sep=""), data(package = "canaccessR")$results[, "Item"]) |> length()` *sf* objects represent the CMA areas' boundaries and backgrounds for plotting the data spatially, respectively. Finally, `r grep("statistics", data(package = "canaccessR")$results[, "Item"]) |> length()` *data.frame*s contain aggregated population and transit statistics at the CMA level.
 
-We now present some descriptive statistics from the travel time matrices contained in the {canaccessR} package. Table @tbl-table_1 summarizes the travel time estimates. The travel time objects contain, in total, 97,784,850 origin-destination pairs (observations) from population to employment locations for all the DAs in the sample and 18,519,897 pairs from population to grocery stores. Considering all areas combined, the mean travel time to jobs was 78 and 76 to grocery stores.
+We now present some descriptive statistics from the travel time matrices contained in the {canaccessR} package. Table \ref{tab:table_1} summarizes the travel time estimates. The travel time objects contain, in total, 97,784,850 origin-destination pairs (observations) from population to employment locations for all the DAs in the sample and 18,519,897 pairs from population to grocery stores. Considering all areas combined, the mean travel time to jobs was 78 and 76 to grocery stores.
 
 ```{r, fig.pos="H"}
-#| label: tbl-table_1
-#| tbl-cap: "Descriptive statistics of the travel time matrices from the {canaccessR} package."
 #| echo: false
 #| message: false
 
 
-sk_full %>% 
-  gt() %>% 
-  fmt_number(use_seps = TRUE, decimals = FALSE) |>  
-  tab_options( 
-    table.font.size = 10,
-    table.width = pct(100) 
-    )  
-
+sk_full %>%
+  kableExtra::kable("latex",
+                    booktabs = TRUE,
+                    digits = 2,
+                    caption = "\\label{tab:table_1}Descriptive statistics of the travel time matrices from the {canaccessR} package.") %>%
+kable_styling(latex_options = c("striped", "scale_down"))
+  
+  
 ```
-
 
 <!--
 # Python integration
@@ -172,18 +170,18 @@ Possibly provide a Jupyter Notebook containing a Python script to demonstrate ho
 
 # {canaccessR} usage
 
-This section presents a usage example of the package through a visual representation of its data. In Figure @fig-travel_time_emp_grc_plot, we show the spatial distribution of the travel time matrices for the metropolitan region of Montréal. In it, we see the median travel time from each DA to employment (left) and to grocery stores (right). The plot shows that moving away from the city core increases the necessary travel time by public transit to reach both employment locations and grocery stores. This result is expected for employment, given the typical concentration of this type of opportunity in downtown centers, but it also points out at a distribution of grocery stores that also requires increased travel for non-central city residents.
+This section presents a usage example of the package through a visual representation of its data. In Figure \ref{fig:fig-travel_time_emp_grc_plot}, we show the spatial distribution of the travel time matrices for the metropolitan region of Montréal. In it, we see the median travel time from each DA to employment (left) and to grocery stores (right). The plot shows that moving away from the city core increases the necessary travel time by public transit to reach both employment locations and grocery stores. This result is expected for employment, given the typical concentration of this type of opportunity in downtown centers, but it also points out at a distribution of grocery stores that also requires increased travel for non-central city residents.
 
-```{r, fig.pos="H"}
-#| label: fig-travel_time_emp_grc_plot
-#| fig-cap: "Estimated median travel time (minutes) per Dissemination Area to jobs (left) and grocery stores (right). Public transit travel times are calculated using {r5r} (Pereira et al., 2021), and DA and planning boundaries of the Montréal metropolitan area use Statistics Canada data (Statistics Canada, 2016)."
+```{r, fig.pos="H", fig.cap={"\\label{fig:fig-travel_time_emp_grc_plot}Estimated median travel time (minutes) per Dissemination Area to jobs (left) and grocery stores (right). Public transit travel times are calculated using {r5r} (Pereira et al., 2021), and DA and planning boundaries of the Montréal metropolitan area use Statistics Canada data (Statistics Canada, 2016)."}}
+##| label: fig-travel_time_emp_grc_plot
+##| fig-cap: "Estimated median travel time (minutes) per Dissemination Area to jobs (left) and grocery stores (right). Public transit travel times are #calculated using {r5r} (Pereira et al., 2021), and DA and planning boundaries of the Montréal metropolitan area use Statistics Canada data (Statistics #Canada, 2016)."
 #| out-width: 100%
 #| echo: false
 knitr::include_graphics("../figures/patch_tt_emp_grc.jpg")
 ```
 <!--AS: Where is the 0-30 bin for grocery stores? It would be helpful to change the plot so it reads '0-30' '30-60', '60-90', 90-120min -->
 
-A more thorough example of the package's use can be found in the School of Cities' recent report on Canada's Urban Infrastructure Deficit. In its 11th Chapter, we use the travel time matrices to estimate accessibility metrics to jobs and grocery stores before and after the pandemic [@pargaDemocraticAccessOur2024]. We then compare how changes affected groups differently according to their spatial distribution and income level, thus making explicit the connection between the package's information and matters of equity in transportation. The report is freely available for download at the State of Cities Summit [website](https://stateofcitiessummit.ca/report).
+A more thorough example of the package's use can be found in the School of Cities' recent report on Canada's Urban Infrastructure Deficit. In its 11th Chapter, the travel time matrices in the package are used to estimate accessibility metrics to jobs and grocery stores before and after the pandemic [@pargaDemocraticAccessOur2024]. This work also compares how changes affected groups differently according to their spatial distribution and income level, thus making explicit the connection between the package's information and matters of equity in transportation. The report is freely available for download at the State of Cities Summit [website](https://stateofcitiessummit.ca/report).
 
 Since a set of travel time matrices (those labeled as employment) were computed from DA centroid to DA centroid, users of the package can easily incorporate any other type of opportunity aggregated at the DA level to expand the range of possible applications of the data package.
 
